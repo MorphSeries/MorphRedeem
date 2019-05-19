@@ -1,0 +1,12 @@
+name: MorphRedeem
+version: 1.0.1
+main: net.naturva.morphie.MorphRedeem
+author: Morphie
+api-version: 1.13
+depend: [mcMMO]
+softdepend: [PlaceholderAPI]
+commands:
+   mr:
+    description: Main command for the MorphRedeem plugin!
+    usage: /<command>
+    aliases: [redeem]
