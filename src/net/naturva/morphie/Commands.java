@@ -26,10 +26,9 @@ public class Commands implements CommandExecutor {
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		Player player = (Player)sender;
-		UUID uuid = player.getUniqueId();
 		if (cmd.getName().equalsIgnoreCase("mr") || cmd.getName().equalsIgnoreCase("redeem")) {
 			if (args.length == 0) {
+				Player player = (Player)sender;
 				if (sender.hasPermission("morphredeem.redeem")) {
 					new RedeemMenu(this.plugin).openGUIRedeem(player);
 					return true;
@@ -61,6 +60,8 @@ public class Commands implements CommandExecutor {
 					return true;
 				}
 			} else if (args[0].equalsIgnoreCase("Credits")) {
+				Player player = (Player)sender;
+				UUID uuid = player.getUniqueId();
 				if (sender.hasPermission("morphredeem.credits")) {
 					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("PlayerCreditsMessage").replace("%CREDITS%", new PlayerFileMethods(this.plugin).getStat(uuid, "Credits"))));
 					return true;
@@ -90,7 +91,7 @@ public class Commands implements CommandExecutor {
 			            	return true;
 			            }
 			            new PlayerFileMethods(this.plugin).addCredits(target, targetUUID, "Credits", amount);
-			            if (player == target) {
+			            if (sender == target) {
 			            	target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditAddMessage").replace("%CREDITS%", "" + amount)));
 			            	return true;
 			            } else {
@@ -99,6 +100,7 @@ public class Commands implements CommandExecutor {
 			            	return true;
 			            }
 			        } else {
+						Player player = (Player)sender;
 						UUID uuid2 = Bukkit.getServer().getOfflinePlayer(args[1]).getUniqueId();
 						if (getFileExists(uuid2)) {
 				            new PlayerFileMethods(this.plugin).addCredits(player, uuid2, "Credits", amount);
@@ -137,7 +139,7 @@ public class Commands implements CommandExecutor {
 			            	return true; 
 			            }
 			            new PlayerFileMethods(this.plugin).removeCredits(target, targetUUID, "Credits", amount);
-			            if (player == target) {
+			            if (sender == target) {
 			            	target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditRemoveMessage").replace("%CREDITS%", "" + amount)));
 			            	return true;
 			            } else {
@@ -146,6 +148,7 @@ public class Commands implements CommandExecutor {
 			            	return true;
 			            }
 			        } else {
+						Player player = (Player)sender;
 						UUID uuid2 = Bukkit.getServer().getOfflinePlayer(args[1]).getUniqueId();
 						if (getFileExists(uuid2)) {
 				            new PlayerFileMethods(this.plugin).removeCredits(player, uuid2, "Credits", amount);
@@ -173,6 +176,8 @@ public class Commands implements CommandExecutor {
 		        }
 			} else if (args.length == 2) {
 				if (sender.hasPermission("morphredeem.skillcommand")) {
+					Player player = (Player)sender;
+					UUID uuid = player.getUniqueId();
 					String skill = args[0];
 					int amount2 = Integer.parseInt(args[1]);
 					int credits = Integer.parseInt(new PlayerFileMethods(this.plugin).getStat(uuid, "Credits"));
