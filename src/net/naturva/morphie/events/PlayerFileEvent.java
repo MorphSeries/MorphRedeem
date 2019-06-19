@@ -15,6 +15,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import net.naturva.morphie.MorphRedeem;
+import net.naturva.morphie.util.Database.MySQLConnection;
 
 public class PlayerFileEvent implements Listener {
 	
@@ -29,23 +30,27 @@ public class PlayerFileEvent implements Listener {
   		Player player = e.getPlayer();
   		UUID uuid = player.getUniqueId();
   		
-  		new BukkitRunnable() {
-  			public void run() {
-  				File file = getData(uuid);
-  		        FileConfiguration pd = YamlConfiguration.loadConfiguration(file);
-  		        if (!pd.contains("Credits")) {
-  		        	pd.set("Credits", Integer.valueOf(0));
-  		        	pd.set("CreditsSpent", Integer.valueOf(0));
-  		            try {
-  		              pd.save(file);
-  		            }
-  		            catch (IOException e) {
-  		              Bukkit.getServer().getLogger().log(Level.SEVERE, "Could not save " + uuid + "'s player file!");
-  		              e.printStackTrace();
-  		            }
-  		        }
-  			}
-  		}.runTaskLater(this.plugin, 60L);		
+  		if (this.plugin.getConfig().getString("StorageMethod").equals("MySQL")) {
+  			new MySQLConnection(this.plugin).createPlayer(uuid, player);
+  		} else {
+  	  		new BukkitRunnable() {
+  	  			public void run() {
+  	  				File file = getData(uuid);
+  	  		        FileConfiguration pd = YamlConfiguration.loadConfiguration(file);
+  	  		        if (!pd.contains("Credits")) {
+  	  		        	pd.set("Credits", Integer.valueOf(0));
+  	  		        	pd.set("CreditsSpent", Integer.valueOf(0));
+  	  		            try {
+  	  		              pd.save(file);
+  	  		            }
+  	  		            catch (IOException e) {
+  	  		              Bukkit.getServer().getLogger().log(Level.SEVERE, "Could not save " + uuid + "'s player file!");
+  	  		              e.printStackTrace();
+  	  		            }
+  	  		        }
+  	  			}
+  	  		}.runTaskLater(this.plugin, 60L);	
+  		}	
   	}
   	
   	public File getData(UUID uuid) {

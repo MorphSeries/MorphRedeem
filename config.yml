@@ -8,7 +8,7 @@
 #
 #============================================================================================================================|
 #
-# Plugin Version: 1.0.1
+# Plugin Version: 1.1.0
 # Spigot Link: TBA
 # Discord Link: https://discord.gg/6bnU9xn
 # Author's Discord: Morphie#6969
@@ -18,6 +18,18 @@
 #
 #============================================================================================================================|
 
+# Storage method, can be MySQL or YML
+StorageMethod: "YML"
+
+# Requires 'StorageMethod' to be MySQL
+MySQL:
+  Username: "root"
+  Password: "password"
+  Host: "localhost"
+  Port: 3306
+  Database: "minecraft"
+  TablePrefix: "mr_"
+  
 Settings:
   BackgroundGlassColor: 11
   DisabledSkills:
