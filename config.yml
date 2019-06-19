@@ -18,6 +18,18 @@
 #
 #============================================================================================================================|
 
+# Storage method, can be MySQL or YML
+StorageMethod: "YML"
+
+# Requires 'StorageMethod' to be MySQL
+MySQL:
+  Username: "root"
+  Password: "password"
+  Host: "localhost"
+  Port: 3306
+  Database: "minecraft"
+  TablePrefix: "mr_"
+  
 Settings:
   BackgroundGlassColor: 11
   DisabledSkills:

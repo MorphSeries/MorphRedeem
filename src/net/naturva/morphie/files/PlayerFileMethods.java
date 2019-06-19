@@ -51,8 +51,8 @@ public class PlayerFileMethods {
     return playerFile;
   }
   
-	public void setData(Player player, UUID uuid, String string, int i) {
-	    File file = getPlayerFile(player.getUniqueId());
+	public void setData(UUID uuid, String string, int i) {
+	    File file = getPlayerFile(uuid);
 	    FileConfiguration fc = YamlConfiguration.loadConfiguration(file);
 	    fc.set(string, Integer.valueOf(fc.getInt(string) + i));
 	    try
@@ -65,38 +65,24 @@ public class PlayerFileMethods {
 	    }
 	}
 	
-	public void addCredits(Player player, UUID uuid, String string, int i) {
-	    File file = getPlayerFile(player.getUniqueId());
-	    FileConfiguration fc = YamlConfiguration.loadConfiguration(file);
-	    fc.set(string, Integer.valueOf(fc.getInt(string) + i));
-	    try
-	    {
-	      fc.save(file);
-	    }
-	    catch (IOException e)
-	    {
-	      e.printStackTrace();
-	    }
-	}
-	
-	public void removeCredits(Player player, UUID uuid, String string, int i) {
-	    File file = getPlayerFile(player.getUniqueId());
-	    FileConfiguration fc = YamlConfiguration.loadConfiguration(file);
-	    fc.set(string, Integer.valueOf(fc.getInt(string) - i));
-	    try
-	    {
-	      fc.save(file);
-	    }
-	    catch (IOException e)
-	    {
-	      e.printStackTrace();
-	    }
-	}
-	
-	public void setBoolean(Player player, UUID uuid, String string, Boolean b) {
-	    File file = getPlayerFile(player.getUniqueId());
+	public void setBoolean(UUID uuid, String string, Boolean b) {
+	    File file = getPlayerFile(uuid);
 	    FileConfiguration fc = YamlConfiguration.loadConfiguration(file);
 	    fc.set(string, Boolean.valueOf(b));
+	    try
+	    {
+	      fc.save(file);
+	    }
+	    catch (IOException e)
+	    {
+	      e.printStackTrace();
+	    }
+	}
+	
+	public void updateCredits(UUID uuid, String string, int i) {
+	    File file = getPlayerFile(uuid);
+	    FileConfiguration fc = YamlConfiguration.loadConfiguration(file);
+	    fc.set(string, Integer.valueOf(fc.getInt(string) + i));
 	    try
 	    {
 	      fc.save(file);

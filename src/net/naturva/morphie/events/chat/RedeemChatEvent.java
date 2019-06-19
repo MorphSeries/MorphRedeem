@@ -13,6 +13,7 @@ import com.gmail.nossr50.api.ExperienceAPI;
 import net.md_5.bungee.api.ChatColor;
 import net.naturva.morphie.MorphRedeem;
 import net.naturva.morphie.files.PlayerFileMethods;
+import net.naturva.morphie.util.dataManager;
 
 public class RedeemChatEvent implements Listener {
 
@@ -47,7 +48,7 @@ public class RedeemChatEvent implements Listener {
 	        	return;
 	        }
 	        int amountToAdd = Integer.parseInt(chatMessage);
-	        int credits = Integer.parseInt(new PlayerFileMethods(this.plugin).getStat(uuid, "Credits"));
+	        int credits = Integer.parseInt(new dataManager(plugin).getData(uuid, "Credits"));
 	        if (credits < amountToAdd) {
 	        	player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidCredits")));
 	        	return;
@@ -67,25 +68,25 @@ public class RedeemChatEvent implements Listener {
 	        		message = message.replaceAll("%SKILL%", skill);
 	          }
 	          if (message.contains("%CAP%")) {
-	            message = message.replaceAll("%CAP%", "" + cap);
+	        	  message = message.replaceAll("%CAP%", "" + cap);
 	          }
 	          if (message.contains("%LEVEL%")) {
 	        	  message = message.replaceAll("%LEVEL%", "" + (ExperienceAPI.getLevel(player, skill) + amountToAdd));
 	          }
 	          player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + message));
 	        } else {
-	          new PlayerFileMethods(this.plugin).addCredits(player, uuid, "CreditsSpent", amountToAdd);
-	          new PlayerFileMethods(this.plugin).removeCredits(player, uuid, "Credits", amountToAdd);
-	          
-	          ExperienceAPI.addLevel(player, skill, amountToAdd);
-	          String message = this.plugin.getMessage("CreditAssignmentSuccess");
-	          if (message.contains("%SKILL%")) {
-	            message = message.replaceAll("%SKILL%", skill);
-	          }
-	          if (message.contains("%CREDITS%")) {
-	            message = message.replaceAll("%CREDITS%", "" + amountToAdd);
-	          }
-	          player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + message));
+	        	new dataManager(plugin).updateData(uuid, +amountToAdd, "Credits_Spent", "add");
+	        	new dataManager(plugin).updateData(uuid, -amountToAdd, "Credits", "remove");
+	        	
+	        	ExperienceAPI.addLevel(player, skill, amountToAdd);
+	        	String message = this.plugin.getMessage("CreditAssignmentSuccess");
+	        	if (message.contains("%SKILL%")) {
+	        		message = message.replaceAll("%SKILL%", skill);
+	        	}
+	        	if (message.contains("%CREDITS%")) {
+	        		message = message.replaceAll("%CREDITS%", "" + amountToAdd);
+	        	}
+	        	player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + message));
 	        }
 		}
 	}

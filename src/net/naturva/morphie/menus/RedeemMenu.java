@@ -12,6 +12,7 @@ import org.bukkit.inventory.Inventory;
 import net.naturva.morphie.MorphRedeem;
 import net.naturva.morphie.files.PlayerFileMethods;
 import net.naturva.morphie.util.McMMOMethods;
+import net.naturva.morphie.util.dataManager;
 
 
 
@@ -280,7 +281,7 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> mcMMOCredits = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.mcMMOCredits.Lore")) {
 	    	mcMMOCredits.add(ChatColor.translateAlternateColorCodes('&', s)
-	    			.replace("%MCMMOCREDITS%", "" + new PlayerFileMethods(this.plugin).getStat(uuid, "Credits")));
+	    			.replace("%MCMMOCREDITS%", "" + new dataManager(plugin).getData(uuid, "Credits")));
 		}
 	
 		Redeem.setItem(16, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.mcMMOCredits.ItemName"), 1, this.plugin.getMessage("Menu.mcMMOCredits.Name"), mcMMOCredits, false));
@@ -288,7 +289,7 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> CreditsSpent = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.CreditsSpent.Lore")) {
 	    	CreditsSpent.add(ChatColor.translateAlternateColorCodes('&', s)
-	    			.replace("%CREDITSSPENT%", "" + new PlayerFileMethods(this.plugin).getStat(uuid, "CreditsSpent")));
+	    			.replace("%CREDITSSPENT%", "" + new dataManager(plugin).getData(uuid, "Credits_Spent")));
 		}
 	
 		Redeem.setItem(25, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.CreditsSpent.ItemName"), 1, this.plugin.getMessage("Menu.CreditsSpent.Name"), CreditsSpent, false));

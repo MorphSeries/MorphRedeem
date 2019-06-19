@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import net.naturva.morphie.MorphRedeem;
 import net.naturva.morphie.files.PlayerFileMethods;
+import net.naturva.morphie.util.dataManager;
 
 public class RedeemMenuEvent implements Listener {
 
@@ -31,7 +32,7 @@ public class RedeemMenuEvent implements Listener {
 				return;
 			}
 			
-			String credits = new PlayerFileMethods(this.plugin).getStat(uuid, "Credits");
+			String credits = new dataManager(plugin).getData(uuid, "Credits");
 			ItemStack item = event.getCurrentItem();
 		    ItemMeta itemmeta = item.getItemMeta();
 		    ArrayList<String> itemlore = (ArrayList<String>) itemmeta.getLore();

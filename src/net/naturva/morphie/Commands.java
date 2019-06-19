@@ -16,6 +16,7 @@ import net.md_5.bungee.api.ChatColor;
 import net.naturva.morphie.files.PlayerFileMethods;
 import net.naturva.morphie.menus.RedeemMenu;
 import net.naturva.morphie.util.McMMOMethods;
+import net.naturva.morphie.util.dataManager;
 
 public class Commands implements CommandExecutor {
 	
@@ -63,7 +64,7 @@ public class Commands implements CommandExecutor {
 				Player player = (Player)sender;
 				UUID uuid = player.getUniqueId();
 				if (sender.hasPermission("morphredeem.credits")) {
-					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("PlayerCreditsMessage").replace("%CREDITS%", new PlayerFileMethods(this.plugin).getStat(uuid, "Credits"))));
+					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("PlayerCreditsMessage").replace("%CREDITS%", new dataManager(plugin).getData(uuid, "Credits"))));
 					return true;
 				} else {
 					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("NoPermsMessage")));
@@ -90,7 +91,7 @@ public class Commands implements CommandExecutor {
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Add")));
 			            	return true;
 			            }
-			            new PlayerFileMethods(this.plugin).addCredits(target, targetUUID, "Credits", amount);
+			            new dataManager(plugin).updateData(targetUUID, +amount, "Credits", "add");
 			            if (sender == target) {
 			            	target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditAddMessage").replace("%CREDITS%", "" + amount)));
 			            	return true;
@@ -103,7 +104,7 @@ public class Commands implements CommandExecutor {
 						Player player = (Player)sender;
 						UUID uuid2 = Bukkit.getServer().getOfflinePlayer(args[1]).getUniqueId();
 						if (getFileExists(uuid2)) {
-				            new PlayerFileMethods(this.plugin).addCredits(player, uuid2, "Credits", amount);
+							new dataManager(plugin).updateData(uuid2, +amount, "Credits", "add");
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditAddSuccessMessage")));
 							return true;
 						} else {
@@ -122,7 +123,7 @@ public class Commands implements CommandExecutor {
 			        if (Bukkit.getServer().getPlayer(args[1]) != null) {
 				        Player target = Bukkit.getServer().getPlayer(args[1]); 
 				        UUID targetUUID = target.getUniqueId();
-				        int credits = Integer.parseInt(new PlayerFileMethods(this.plugin).getStat(targetUUID, "Credits"));
+				        int credits = Integer.parseInt(new dataManager(plugin).getData(targetUUID, "Credits"));
 			        	try {
 			        		Integer.parseInt(args[2]);
 			            }
@@ -138,7 +139,7 @@ public class Commands implements CommandExecutor {
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Remove")));
 			            	return true; 
 			            }
-			            new PlayerFileMethods(this.plugin).removeCredits(target, targetUUID, "Credits", amount);
+			            new dataManager(plugin).updateData(targetUUID, -amount, "Credits", "remove");
 			            if (sender == target) {
 			            	target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditRemoveMessage").replace("%CREDITS%", "" + amount)));
 			            	return true;
@@ -151,7 +152,7 @@ public class Commands implements CommandExecutor {
 						Player player = (Player)sender;
 						UUID uuid2 = Bukkit.getServer().getOfflinePlayer(args[1]).getUniqueId();
 						if (getFileExists(uuid2)) {
-				            new PlayerFileMethods(this.plugin).removeCredits(player, uuid2, "Credits", amount);
+							new dataManager(plugin).updateData(uuid2, -amount, "Credits", "remove");
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditRemoveSuccessMessage")));
 							return true;
 						} else {
@@ -180,7 +181,7 @@ public class Commands implements CommandExecutor {
 					UUID uuid = player.getUniqueId();
 					String skill = args[0];
 					int amount2 = Integer.parseInt(args[1]);
-					int credits = Integer.parseInt(new PlayerFileMethods(this.plugin).getStat(uuid, "Credits"));
+					int credits = Integer.parseInt(new dataManager(plugin).getData(uuid, "Credits"));
 					if (new McMMOMethods().doesSkillExist(player, skill) == false) {
 						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidSkill")));
 						return true;
@@ -208,8 +209,8 @@ public class Commands implements CommandExecutor {
 			          player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + message));
 			          return true;
 			        } else {	
-			        	new PlayerFileMethods(this.plugin).addCredits(player, uuid, "CreditsSpent", amount2);
-			        	new PlayerFileMethods(this.plugin).removeCredits(player, uuid, "Credits", amount2);
+			        	new dataManager(plugin).updateData(uuid, +amount2, "Credits_Spent", "add");
+			        	new dataManager(plugin).updateData(uuid, -amount2, "Credits", "remove");
 		          
 			        	ExperienceAPI.addLevel(player, skill, amount2);
 			        	String message = this.plugin.getMessage("CreditAssignmentSuccess");

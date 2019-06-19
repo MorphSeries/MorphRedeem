@@ -23,6 +23,7 @@ import net.naturva.morphie.events.menus.RedeemMenuEvent;
 import net.naturva.morphie.files.Messages;
 import net.naturva.morphie.util.MetricsLite;
 import net.naturva.morphie.util.MorphRedeemExpansion;
+import net.naturva.morphie.util.Database.MySQLConnection;
 
 public class MorphRedeem extends JavaPlugin implements Listener {
 	
@@ -52,6 +53,13 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 	    getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&bVersion&8: &a" + this.Version));
 		createConfig();
 		loadConfigManager();
+		if (this.getConfig().getString("StorageMethod").equals("MySQL")) {
+			new MySQLConnection(this).mysqlSetup();
+			new MySQLConnection(this).checkStructure();
+			getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&bStorage Type&8: &aMySQL"));
+		} else {
+			getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&bStorage Type&8: &aYML"));
+		}
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
         	new MorphRedeemExpansion(this).register();
         	getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&bPlaceholderAPI&8: &aHooked"));

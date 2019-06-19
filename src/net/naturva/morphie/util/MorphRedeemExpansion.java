@@ -105,12 +105,12 @@ public class MorphRedeemExpansion extends PlaceholderExpansion {
 
         // %someplugin_placeholder1%
         if(identifier.equals("credits")){
-        	return new PlayerFileMethods(plugin).getStat(player.getUniqueId(), "Credits");
+        	return new dataManager(plugin).getData(player.getUniqueId(), "Credits");
         }
 
         // %someplugin_placeholder2%
         if(identifier.equals("creditsspent")){
-            return new PlayerFileMethods(plugin).getStat(player.getUniqueId(), "CreditsSpent");
+            return new dataManager(plugin).getData(player.getUniqueId(), "Credits_Spent");
         }
  
         // We return null if an invalid placeholder (f.e. %someplugin_placeholder3%) 
