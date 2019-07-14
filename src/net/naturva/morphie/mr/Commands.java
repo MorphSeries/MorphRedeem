@@ -1,4 +1,4 @@
-package net.naturva.morphie;
+package net.naturva.morphie.mr;
 
 import java.io.File;
 import java.util.UUID;
@@ -13,10 +13,10 @@ import org.bukkit.plugin.Plugin;
 import com.gmail.nossr50.api.ExperienceAPI;
 
 import net.md_5.bungee.api.ChatColor;
-import net.naturva.morphie.files.PlayerFileMethods;
-import net.naturva.morphie.menus.RedeemMenu;
-import net.naturva.morphie.util.McMMOMethods;
-import net.naturva.morphie.util.dataManager;
+import net.naturva.morphie.mr.files.PlayerFileMethods;
+import net.naturva.morphie.mr.menus.RedeemMenu;
+import net.naturva.morphie.mr.util.McMMOMethods;
+import net.naturva.morphie.mr.util.dataManager;
 
 public class Commands implements CommandExecutor {
 	

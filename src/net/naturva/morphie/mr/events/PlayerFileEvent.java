@@ -1,4 +1,4 @@
-package net.naturva.morphie.events;
+package net.naturva.morphie.mr.events;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,8 +14,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import net.naturva.morphie.MorphRedeem;
-import net.naturva.morphie.util.Database.MySQLConnection;
+import net.naturva.morphie.mr.MorphRedeem;
+import net.naturva.morphie.mr.util.Database.MySQLConnection;
 
 public class PlayerFileEvent implements Listener {
 	

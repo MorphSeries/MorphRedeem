@@ -1,4 +1,4 @@
-package net.naturva.morphie.menus;
+package net.naturva.morphie.mr.menus;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -9,10 +9,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 
-import net.naturva.morphie.MorphRedeem;
-import net.naturva.morphie.files.PlayerFileMethods;
-import net.naturva.morphie.util.McMMOMethods;
-import net.naturva.morphie.util.dataManager;
+import net.naturva.morphie.mr.MorphRedeem;
+import net.naturva.morphie.mr.files.PlayerFileMethods;
+import net.naturva.morphie.mr.util.McMMOMethods;
+import net.naturva.morphie.mr.util.dataManager;
 
 
 

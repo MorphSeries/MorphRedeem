@@ -1,10 +1,10 @@
-package net.naturva.morphie.util;
+package net.naturva.morphie.mr.util;
 
 import java.util.UUID;
 
-import net.naturva.morphie.MorphRedeem;
-import net.naturva.morphie.files.PlayerFileMethods;
-import net.naturva.morphie.util.Database.MySQLConnection;
+import net.naturva.morphie.mr.MorphRedeem;
+import net.naturva.morphie.mr.files.PlayerFileMethods;
+import net.naturva.morphie.mr.util.Database.MySQLConnection;
 
 public class dataManager {
 	

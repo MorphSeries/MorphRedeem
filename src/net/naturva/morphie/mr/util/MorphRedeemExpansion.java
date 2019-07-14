@@ -1,10 +1,10 @@
-package net.naturva.morphie.util;
+package net.naturva.morphie.mr.util;
 
 import org.bukkit.entity.Player;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import net.naturva.morphie.MorphRedeem;
-import net.naturva.morphie.files.PlayerFileMethods;
+import net.naturva.morphie.mr.MorphRedeem;
+import net.naturva.morphie.mr.files.PlayerFileMethods;
 
 public class MorphRedeemExpansion extends PlaceholderExpansion {
 
