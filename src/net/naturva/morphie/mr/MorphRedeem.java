@@ -1,4 +1,4 @@
-package net.naturva.morphie;
+package net.naturva.morphie.mr;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -17,20 +17,20 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.md_5.bungee.api.ChatColor;
-import net.naturva.morphie.events.PlayerFileEvent;
-import net.naturva.morphie.events.chat.RedeemChatEvent;
-import net.naturva.morphie.events.menus.RedeemMenuEvent;
-import net.naturva.morphie.files.Messages;
-import net.naturva.morphie.util.MetricsLite;
-import net.naturva.morphie.util.MorphRedeemExpansion;
-import net.naturva.morphie.util.Database.MySQLConnection;
+import net.naturva.morphie.mr.events.PlayerFileEvent;
+import net.naturva.morphie.mr.events.chat.RedeemChatEvent;
+import net.naturva.morphie.mr.events.menus.RedeemMenuEvent;
+import net.naturva.morphie.mr.files.Messages;
+import net.naturva.morphie.mr.util.MetricsLite;
+import net.naturva.morphie.mr.util.MorphRedeemExpansion;
+import net.naturva.morphie.mr.util.Database.MySQLConnection;
 
 public class MorphRedeem extends JavaPlugin implements Listener {
 	
 	public static Logger log = Logger.getLogger("Minecraft");
 	public Messages messagescfg;
 	public HashMap<Player, String> addCredits = new HashMap<Player, String>();
-	public String Version = "1.1.0";
+	public String Version = "1.1.1";
 	
 	private PlayerFileEvent pe;
 	private RedeemMenuEvent me;

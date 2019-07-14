@@ -1,4 +1,4 @@
-package net.naturva.morphie.events.chat;
+package net.naturva.morphie.mr.events.chat;
 
 import java.util.UUID;
 
@@ -11,9 +11,9 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import com.gmail.nossr50.api.ExperienceAPI;
 
 import net.md_5.bungee.api.ChatColor;
-import net.naturva.morphie.MorphRedeem;
-import net.naturva.morphie.files.PlayerFileMethods;
-import net.naturva.morphie.util.dataManager;
+import net.naturva.morphie.mr.MorphRedeem;
+import net.naturva.morphie.mr.files.PlayerFileMethods;
+import net.naturva.morphie.mr.util.dataManager;
 
 public class RedeemChatEvent implements Listener {
 

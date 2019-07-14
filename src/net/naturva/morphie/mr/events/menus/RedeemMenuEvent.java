@@ -1,4 +1,4 @@
-package net.naturva.morphie.events.menus;
+package net.naturva.morphie.mr.events.menus;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -11,9 +11,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import net.naturva.morphie.MorphRedeem;
-import net.naturva.morphie.files.PlayerFileMethods;
-import net.naturva.morphie.util.dataManager;
+import net.naturva.morphie.mr.MorphRedeem;
+import net.naturva.morphie.mr.files.PlayerFileMethods;
+import net.naturva.morphie.mr.util.dataManager;
 
 public class RedeemMenuEvent implements Listener {
 

@@ -1,4 +1,4 @@
-package net.naturva.morphie.util.Database;
+package net.naturva.morphie.mr.util.Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ import java.util.UUID;
 
 import org.bukkit.entity.Player;
 
-import net.naturva.morphie.MorphRedeem;
+import net.naturva.morphie.mr.MorphRedeem;
 
 public class MySQLConnection {
 	
@@ -20,7 +20,7 @@ public class MySQLConnection {
 	}
 	
 	public Connection connection;
-	public String host, database, tablePrefix, username, password;
+	public String host, database, tablePrefix, username, password, ssl;
 	public int port;
 	
 	public void mysqlSetup() {
@@ -30,6 +30,11 @@ public class MySQLConnection {
 		username = this.plugin.getConfig().getString("MySQL.Username");
 		password = this.plugin.getConfig().getString("MySQL.Password");
 		tablePrefix = this.plugin.getConfig().getString("MySQL.TablePrefix");
+		if (this.plugin.getConfig().getBoolean("MySQL.SSL") == true) {
+			ssl = "?verifyServerCertificate=false"+"&useSSL=true"+"&requireSSL=true";
+		} else {
+			ssl = "?useSSL=false";
+		}
 		
 		try {
 			synchronized (this) {
@@ -38,7 +43,7 @@ public class MySQLConnection {
 				}
 				
 				Class.forName("com.mysql.jdbc.Driver");
-				setConnection((Connection) DriverManager.getConnection("jdbc:mysql://" + this.host + ":" + this.port + "/" + this.database, this.username, this.password));
+				setConnection((Connection) DriverManager.getConnection("jdbc:mysql://" + this.host + ":" + this.port + "/" + this.database + this.ssl, this.username, this.password));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -56,7 +61,7 @@ public class MySQLConnection {
 					+ "`uuid` varchar(36) NULL DEFAULT NULL," 
 					+ "`credits` int(32) unsigned NOT NULL DEFAULT '0',"
 					+ "`credits_spent` int(32) unsigned NOT NULL DEFAULT '0',"
-					+ "PRIMARY KEY (`uuid`)) "
+					+ "UNIQUE KEY `uuid` (`uuid`)) "
                     + "DEFAULT CHARSET=latin1;");
 			statement.executeUpdate();
 			

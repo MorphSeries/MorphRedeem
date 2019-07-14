@@ -1,4 +1,4 @@
-package net.naturva.morphie.files;
+package net.naturva.morphie.mr.files;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import net.naturva.morphie.MorphRedeem;
+import net.naturva.morphie.mr.MorphRedeem;
 
 
 public class PlayerFileMethods {
