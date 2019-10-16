@@ -24,7 +24,7 @@ public class dataManager {
 	
 	public void updateData(UUID uuid, int data, String name, String type) {
 		if (this.plugin.getConfig().getString("StorageMethod").equals("MySQL")) {
-			new MySQLConnection(this.plugin).updateData(uuid, data, name);
+			new MySQLConnection(this.plugin).updateData(uuid, data, name, type);
 		} else if (type == "add" || type == "remove"){
 			new PlayerFileMethods(plugin).updateCredits(uuid, name, data);
 		} else if (type == "set") {

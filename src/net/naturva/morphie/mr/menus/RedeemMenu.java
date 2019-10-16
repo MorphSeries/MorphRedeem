@@ -301,7 +301,11 @@ public class RedeemMenu implements Listener {
 	    
 	    int glassInt = this.plugin.getConfig().getInt("Settings.BackgroundGlassColor");
 	
-		Redeem.setItem(34, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.PluginCredits.ItemName"), 1, this.plugin.getMessage("Menu.PluginCredits.Name"), PluginCredits, false));
+	    if (this.plugin.getConfig().getBoolean("Settings.PluginCredits.Enabled") == true) {
+	    	Redeem.setItem(34, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.PluginCredits.ItemName"), 1, this.plugin.getMessage("Menu.PluginCredits.Name"), PluginCredits, false));	
+	    } else {
+	    	Redeem.setItem(34, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
+	    }
 		
 		Redeem.setItem(0, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
 		Redeem.setItem(6, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));

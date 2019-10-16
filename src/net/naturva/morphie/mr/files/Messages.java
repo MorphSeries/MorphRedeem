@@ -30,25 +30,38 @@ public class Messages implements Listener {
 	        
 	    		this.messagesCFG = YamlConfiguration.loadConfiguration(this.messagesFile);
 	    		
-	    		this.messagesCFG.addDefault("Commands.Header", "&8&m]---------+&r&8[ &9&lMorphRedeem &8]&8&m+---------[");
-	    		this.messagesCFG.addDefault("Commands.Footer", "&8&m]---------------+&r &8[&9&l!&8] &8&m+---------------[");
+	    		this.messagesCFG.addDefault("Commands.Header", "&7----------- &9&lMorphRedeem Commands &7----------");
+	    		this.messagesCFG.addDefault("Commands.Footer", "&7--------------------- &8[&9&l!&8] &7---------------------");
 	    		this.messagesCFG.addDefault("Commands.Help", "&b/mr help &8- &7Shows this text menu.");
 	    		this.messagesCFG.addDefault("Commands.MR", "&b/mr &8- &7Opens the redeem menu.");
 	    		this.messagesCFG.addDefault("Commands.MRSkill", "&b/mr <skill> <num> &8- &7Redeem credits into a specified skill.");
 	    		this.messagesCFG.addDefault("Commands.Credits", "&b/mr credits &8- &7Shows your credit count.");
+	    		this.messagesCFG.addDefault("Commands.CreditsOthers", "&b/mr credits <player> &8- &7See a players credit count.");
+	    		this.messagesCFG.addDefault("Commands.Send", "&b/mr send <player> <num> &8- &7Send a player credits.");
 	    		this.messagesCFG.addDefault("Commands.Add", "&9[Admin] &b/mr add <player> <num> &8- &7Add credits to a players credit balance.");
 	    		this.messagesCFG.addDefault("Commands.Remove", "&9[Admin] &b/mr remove <player> <num>&8- &7Remove credits to a players credit balance.");
 	    		this.messagesCFG.addDefault("Commands.Reload", "&9[Admin] &b/mr reload &8- &7Reloads the plugins files.");
+	    		this.messagesCFG.addDefault("Commands.Set", "&9[Admin] &b/mr set <player> <num> &8- &7Set a players credit balance.");
+	    		this.messagesCFG.addDefault("Commands.Reset", "&9[Admin] &b/mr reset <player> &8- &7Reset a players credit balance.");
 	    		this.messagesCFG.addDefault("CorrectUsage.Add", "&bCorrect Ussage&8: &7/mr add <player> <number>");
 	    		this.messagesCFG.addDefault("CorrectUsage.Remove", "&bCorrect Ussage&8: &7/mr remove <player> <number>");
+	    		this.messagesCFG.addDefault("CorrectUsage.Reset", "&bCorrect Ussage&8: &7/mr reset <player>");
+	    		this.messagesCFG.addDefault("CorrectUsage.Set", "&bCorrect Ussage&8: &7/mr set <player> <number>");
+	    		this.messagesCFG.addDefault("CorrectUsage.Send", "&bCorrect Ussage&8: &7/mr send <player> <number>");
 	    		this.messagesCFG.addDefault("CreditAddMessage", "&7You have been given &b%CREDITS% &7credits!");
-	    		this.messagesCFG.addDefault("CreditRemoveMessage", "&7&b%CREDITS% &7credits have been removed from you!");
 	    		this.messagesCFG.addDefault("CreditAddSuccessMessage", "&7Credit assignment successfull!");
-	    		this.messagesCFG.addDefault("CreditRemoveSuccessMessage", "&7Credit removal successfull!");
 	    		this.messagesCFG.addDefault("CreditAssignmentCanceled", "&7Credit assignment canceled successfully!");
-	    		this.messagesCFG.addDefault("CreditAssignmentMessage", "&7Please specify the ammount of credits you would like to add. Write 0 in chat to cancel! &8(&bCredits&8: &7%CREDITS%&8)");
+	    		this.messagesCFG.addDefault("CreditAssignmentMessage", "&7Please specify the amount of credits you would like to add. Write 0 in chat to cancel! &8(&bCredits&8: &7%CREDITS%&8)");
 	    		this.messagesCFG.addDefault("CreditAssignmentSuccess", "&7You successfully applied &b%CREDITS%&7 credits, to the &b%SKILL% &7skill!");
 	    		this.messagesCFG.addDefault("CreditInProgressMessage", "&7You're currently assigning credits to &b%SKILL%&7. Write 0 in chat to cancel! &8(&bCredits&8: &7%CREDITS%&8)");
+	    		this.messagesCFG.addDefault("CreditRemoveMessage", "&7&b%CREDITS% &7credits have been removed from you!");
+	    		this.messagesCFG.addDefault("CreditRemoveSuccessMessage", "&7Credit removal successfull!");
+	    		this.messagesCFG.addDefault("CreditResetMessage", "&7Your credits have been reset!");
+	    		this.messagesCFG.addDefault("CreditResetSuccessMessage", "&7Credits successfully reset!");
+	    		this.messagesCFG.addDefault("CreditSendMessage", "&7You have been sent &b%CREDITS% &7credits from &b%SENDER%&7.");
+	    		this.messagesCFG.addDefault("CreditSendSuccessMessage", "&7You sent &b%CREDITS% &7credits to &b%TARGET%&7.");
+	    		this.messagesCFG.addDefault("CreditSetMessage", "&7Your credits have been set to &b%CREDITS%&7.");
+	    		this.messagesCFG.addDefault("CreditSetSuccessMessage", "&7Credits successfull set!");
 	    		this.messagesCFG.addDefault("ErrorPrefix", "&8[&9&l!&8] ");
 	    		this.messagesCFG.addDefault("IgnoreFormat", "[X]");
 	    		this.messagesCFG.addDefault("InvalidArgsMessage", "&7Invalid arguments! &b/mr help &7to view all commands.");
@@ -79,6 +92,7 @@ public class Messages implements Listener {
 	    		list4.add(" ");
 	    		list4.add("&b&oClick for spigot link!");
 	    		
+	    		this.messagesCFG.addDefault("McMMOPlayerNotLoadedMessage", "&7Your &bmcMMO player file &7has not been loaded yet! Please try again in a &bfew seconds&7.");
 	    		this.messagesCFG.addDefault("Menu.Title", "&9&lMorphRedeem&8&l:");
 	    		this.messagesCFG.addDefault("Menu.Acrobatics.Name", "&9&lAcrobatics&8&l:");
 	    		this.messagesCFG.addDefault("Menu.Acrobatics.Lore", list);
@@ -114,6 +128,7 @@ public class Messages implements Listener {
 	    		this.messagesCFG.addDefault("Menu.PluginCredits.Lore", list4);
 	    		this.messagesCFG.addDefault("NoPermsMessage", "&7You don't have permission to do this!");
 	    		this.messagesCFG.addDefault("NoSkillCap", "&bNone");
+	    		this.messagesCFG.addDefault("OtherPlayerCreditMessage", "&b%PLAYER% &7currently has &b%CREDITS% &7credits.");
 	    		this.messagesCFG.addDefault("PlayerCreditsMessage", "&7You currently have &b%CREDITS% &7credits.");
 	    		this.messagesCFG.addDefault("Prefix", "&9&lMorphRedeem &8&l➙ ");
 	    		this.messagesCFG.addDefault("ReloadMessage", "&7Plugin files successfully reloaded!");

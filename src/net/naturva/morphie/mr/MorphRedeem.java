@@ -30,7 +30,7 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 	public static Logger log = Logger.getLogger("Minecraft");
 	public Messages messagescfg;
 	public HashMap<Player, String> addCredits = new HashMap<Player, String>();
-	public String Version = "1.1.1";
+	public String Version = "1.2.0";
 	
 	private PlayerFileEvent pe;
 	private RedeemMenuEvent me;
