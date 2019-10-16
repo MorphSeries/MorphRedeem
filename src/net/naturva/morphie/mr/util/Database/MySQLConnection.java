@@ -111,14 +111,18 @@ public class MySQLConnection {
 		}
 	}
 	
-	public void updateData(UUID uuid, int num, String column) {
+	public void updateData(UUID uuid, int num, String column, String type) {
 		if (getConnection() == null) {
 			this.mysqlSetup();
 		}
 		try {
 			int data = Integer.parseInt(this.getData(uuid, column));
 			PreparedStatement statement = this.connection.prepareStatement("UPDATE `" + this.tablePrefix + "creditdata` SET " + column.toLowerCase() + "=? WHERE uuid=?");
-			statement.setInt(1, data + num);
+			if (type.equalsIgnoreCase("set")) {
+				statement.setInt(1, num);	
+			} else if (type.equalsIgnoreCase("add") || type.equalsIgnoreCase("remove")) {
+				statement.setInt(1, data + num);
+			}
 			statement.setString(2, uuid.toString());
 			statement.executeUpdate();
 		} catch (SQLException e) {

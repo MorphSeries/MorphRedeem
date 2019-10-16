@@ -8,8 +8,8 @@
 #
 #============================================================================================================================|
 #
-# Plugin Version: 1.1.1
-# Spigot Link: TBA
+# Plugin Version: 1.2.0
+# Spigot Link: https://www.spigotmc.org/resources/morphredeem-mcmmo-credits-1-14.67435/
 # Discord Link: https://discord.gg/6bnU9xn
 # Author's Discord: Morphie#6969
 # 
@@ -18,28 +18,22 @@
 #
 #============================================================================================================================|
 
-# Storage method, can be MySQL or YML
-StorageMethod: "YML"
-
-# Requires 'StorageMethod' to be MySQL
-MySQL:
-  Username: "root"
-  Password: "password"
-  Host: "localhost"
-  Port: 3306
-  SSL: false
-  Database: "minecraft"
-  TablePrefix: "mr_"
-  
 Settings:
+  # The color of glass in the main /morphreedem menu.
   BackgroundGlassColor: 11
   DisabledSkills:
     Enabled: false
+    # Item to replace disabled Skills with.
     ReplaceGUIItem:
       Enabled: false
       ItemName: STRUCTURE_VOID
+    # Skills that players won't be able to apply credits to.
     SkillsToDisable:
     - Acrobatics
+  # Enable or disable the plugin credits item in the /morphredeem menu.
+  PluginCredits:
+    Enabled: true
+  # Change the Item types in the main /morphredeem menu.
   GUI:
     Acrobatics:
       ItemName: LEATHER_BOOTS
@@ -73,3 +67,20 @@ Settings:
       ItemName: EMERALD
     PluginCredits:
       ItemName: PAPER
+
+#============================================================================================================================|
+
+# Storage method, can be MySQL or YML
+StorageMethod: "YML"
+
+# Requires 'StorageMethod' to be MySQL
+MySQL:
+  Username: "root"
+  Password: "password"
+  Host: "localhost"
+  Port: 3306
+  SSL: false
+  Database: "minecraft"
+  TablePrefix: "mr_"
+  
+#============================================================================================================================|

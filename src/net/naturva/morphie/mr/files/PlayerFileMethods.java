@@ -54,7 +54,7 @@ public class PlayerFileMethods {
 	public void setData(UUID uuid, String string, int i) {
 	    File file = getPlayerFile(uuid);
 	    FileConfiguration fc = YamlConfiguration.loadConfiguration(file);
-	    fc.set(string, Integer.valueOf(fc.getInt(string) + i));
+	    fc.set(string, Integer.valueOf(i));
 	    try
 	    {
 	      fc.save(file);
