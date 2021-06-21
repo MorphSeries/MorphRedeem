@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
@@ -133,7 +132,7 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 
 	public String getMessage(String string) {
 		if (string != null) return this.messagescfg.messagesCFG.getString(string);
-		return "Message does not exist in messages.yml!";
+		return "Null message";
 	}
 	
 	public List<String> getMessageList(String string) {
