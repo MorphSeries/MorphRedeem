@@ -131,7 +131,8 @@ public class MorphRedeem extends JavaPlugin implements Listener {
     }
 
 	public String getMessage(String string) {
-		if (string != null) return this.messagescfg.messagesCFG.getString(string);
+		String gotString = this.messagescfg.messagesCFG.getString(string);
+		if (gotString != null) return gotString;
 		return "Null message";
 	}
 	
