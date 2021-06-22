@@ -97,7 +97,7 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 	}
 	
     public void loadConfigManager() {
-        this.messagescfg = new Messages();
+        this.messagescfg = new Messages(this);
         this.messagescfg.setup();
       }
   	

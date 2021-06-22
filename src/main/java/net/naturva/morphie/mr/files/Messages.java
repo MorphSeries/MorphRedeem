@@ -15,9 +15,13 @@ import net.naturva.morphie.mr.MorphRedeem;
 
 
 public class Messages implements Listener {
-	private MorphRedeem plugin = (MorphRedeem)MorphRedeem.getPlugin(MorphRedeem.class);
+	private MorphRedeem plugin;
 	public FileConfiguration messagesCFG;
 	public File messagesFile;
+
+	public Messages(MorphRedeem plugin) {
+		this.plugin = plugin;
+	}
 	  
 	public void setup() {
 		if (!this.plugin.getDataFolder().exists()) {
