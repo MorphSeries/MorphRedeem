@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
+import net.naturva.morphie.mr.util.Database.RedisConnection;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -30,7 +31,7 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 	public static Logger log = Logger.getLogger("Minecraft");
 	public Messages messagescfg;
 	public HashMap<Player, String> addCredits = new HashMap<Player, String>();
-	public String Version = "1.2.2";
+	public String Version = "1.2.3";
 	
 	private PlayerFileEvent pe;
 	private RedeemMenuEvent me;
@@ -57,6 +58,9 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 			new MySQLConnection(this).mysqlSetup();
 			new MySQLConnection(this).checkStructure();
 			getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&bStorage Type&8: &aMySQL"));
+		} else if(this.getConfig().getString("StorageMethod").equals("Redis")) {
+			new RedisConnection(this).auth();
+			getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&bStorage Type&8: &aRedis"));
 		} else {
 			getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&bStorage Type&8: &aYML"));
 		}
@@ -71,6 +75,7 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 	}
 	
 	public void onDisable(){
+		new RedisConnection(this).shutdown();
 		getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[----------[&3MorphRedeem&8]----------]"));
 		getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&bVersion&8: &a" + this.Version));
 	    getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&bPlugin Status&8: &cDisabled"));
