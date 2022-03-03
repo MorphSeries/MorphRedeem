@@ -32,7 +32,7 @@ public class PlayerFileEvent implements Listener {
   		
   		if (this.plugin.getConfig().getString("StorageMethod").equals("MySQL")) {
   			new MySQLConnection(this.plugin).createPlayer(uuid, player);
-  		} else {
+  		} else if(!this.plugin.getConfig().getString("StorageMethod").equals("Redis")) {
   	  		new BukkitRunnable() {
   	  			public void run() {
   	  				File file = getData(uuid);

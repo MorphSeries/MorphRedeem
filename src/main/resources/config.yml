@@ -70,7 +70,7 @@ Settings:
 
 #============================================================================================================================|
 
-# Storage method, can be MySQL or YML
+# Storage method, can be MySQL, Redis, or YML
 StorageMethod: "YML"
 
 # Requires 'StorageMethod' to be MySQL
@@ -82,5 +82,13 @@ MySQL:
   SSL: false
   Database: "minecraft"
   TablePrefix: "mr_"
+
+# Requires 'StorageMethod' to be Redis
+Redis:
+  Hostname: "localhost"
+  Port: 11111
+  Password: "password"
+  SSL: false
+  KeyPrefix: "mr_"
   
 #============================================================================================================================|
