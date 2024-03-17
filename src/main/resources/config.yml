@@ -8,7 +8,7 @@
 #
 #============================================================================================================================|
 #
-# Plugin Version: 1.2.2
+# Plugin Version: 1.2.4
 # Spigot Link: https://www.spigotmc.org/resources/morphredeem-mcmmo-credits-1-14.67435/
 # Discord Link: https://discord.gg/6bnU9xn
 # Author's Discord: Morphie#6969
@@ -33,6 +33,8 @@ Settings:
   # Enable or disable the plugin credits item in the /morphredeem menu.
   PluginCredits:
     Enabled: true
+  # Enable or disable the plugins update checker. (Admins and Console messages for new plugin updates.)
+  UpdateChecker: true
   # Change the Item types in the main /morphredeem menu.
   GUI:
     Acrobatics:

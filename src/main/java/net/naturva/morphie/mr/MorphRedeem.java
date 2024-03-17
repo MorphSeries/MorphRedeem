@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import net.naturva.morphie.mr.util.Database.RedisConnection;
+import net.naturva.morphie.mr.util.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -31,11 +32,11 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 	public static Logger log = Logger.getLogger("Minecraft");
 	public Messages messagescfg;
 	public HashMap<Player, String> addCredits = new HashMap<Player, String>();
-	public String Version = "1.2.4";
-	
 	private PlayerFileEvent pe;
 	private RedeemMenuEvent me;
 	private RedeemChatEvent ce;
+
+	public String Version;
 	
 	public void onEnable() {
 		this.pe = new PlayerFileEvent(this);
@@ -49,6 +50,8 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 		getCommand("mr").setExecutor(new Commands(this));
 		
         new MetricsLite(this);
+
+		Version = this.getDescription().getVersion();
 	    
 	    getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[----------[&3MorphRedeem&8]----------]"));
 	    getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&bVersion&8: &a" + this.Version));
@@ -72,6 +75,14 @@ public class MorphRedeem extends JavaPlugin implements Listener {
         }
 	    getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&bPlugin Status&8: &aEnabled"));
 	    getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[----------[&3MorphRedeem&8]----------]"));
+
+		UpdateChecker updater = new UpdateChecker(this, 67435);
+		try {
+			if (updater.checkForUpdates())
+				getLogger().info("An update was found! New version: " + updater.getLatestVersion() + " Download: " + updater.getResourceURL());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void onDisable(){

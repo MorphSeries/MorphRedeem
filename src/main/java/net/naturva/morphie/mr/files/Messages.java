@@ -116,10 +116,12 @@ public class Messages implements Listener {
 		list3.add("&b➙ &7%CREDITSSPENT%");
 
 		List<String> list4 = new ArrayList<String>();
-		list4.add("&9&lVersion&8: &7" + this.plugin.Version);
+		list4.add("&9&lVersion&8: &7%VERSION%");
 		list4.add(" ");
 		list4.add("&bCode Contributors&8:");
 		list4.add("&8- &7Morphie");
+		list4.add("&8- &7therbz");
+		list4.add("&8- &7Eleksploded");
 		list4.add(" ");
 		list4.add("&b&oClick for spigot link!");
 

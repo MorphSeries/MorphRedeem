@@ -10,9 +10,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 
 import net.naturva.morphie.mr.MorphRedeem;
-import net.naturva.morphie.mr.files.PlayerFileMethods;
 import net.naturva.morphie.mr.util.McMMOMethods;
-import net.naturva.morphie.mr.util.dataManager;
+import net.naturva.morphie.mr.util.DataManager;
 
 
 
@@ -281,7 +280,7 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> mcMMOCredits = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.mcMMOCredits.Lore")) {
 	    	mcMMOCredits.add(ChatColor.translateAlternateColorCodes('&', s)
-	    			.replace("%MCMMOCREDITS%", "" + new dataManager(plugin).getData(uuid, "Credits")));
+	    			.replace("%MCMMOCREDITS%", "" + new DataManager(plugin).getData(uuid, "Credits")));
 		}
 	
 		Redeem.setItem(16, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.mcMMOCredits.ItemName"), 1, this.plugin.getMessage("Menu.mcMMOCredits.Name"), mcMMOCredits, false));
@@ -289,14 +288,18 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> CreditsSpent = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.CreditsSpent.Lore")) {
 	    	CreditsSpent.add(ChatColor.translateAlternateColorCodes('&', s)
-	    			.replace("%CREDITSSPENT%", "" + new dataManager(plugin).getData(uuid, "Credits_Spent")));
+	    			.replace("%CREDITSSPENT%", "" + new DataManager(plugin).getData(uuid, "Credits_Spent")));
 		}
 	
 		Redeem.setItem(25, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.CreditsSpent.ItemName"), 1, this.plugin.getMessage("Menu.CreditsSpent.Name"), CreditsSpent, false));
 
 		ArrayList<String> PluginCredits = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.PluginCredits.Lore")) {
-	    	PluginCredits.add(ChatColor.translateAlternateColorCodes('&', s));
+			if (s.contains("%VERSION%")) {
+				PluginCredits.add(ChatColor.translateAlternateColorCodes('&', s.replace("%VERSION%", this.plugin.getDescription().getVersion())));
+			} else {
+				PluginCredits.add(ChatColor.translateAlternateColorCodes('&', s));
+			}
 		}
 	    
 	    int glassInt = this.plugin.getConfig().getInt("Settings.BackgroundGlassColor");

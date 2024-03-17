@@ -15,10 +15,9 @@ import com.gmail.nossr50.api.ExperienceAPI;
 import com.gmail.nossr50.api.exceptions.McMMOPlayerNotFoundException;
 
 import net.md_5.bungee.api.ChatColor;
-import net.naturva.morphie.mr.files.PlayerFileMethods;
 import net.naturva.morphie.mr.menus.RedeemMenu;
 import net.naturva.morphie.mr.util.McMMOMethods;
-import net.naturva.morphie.mr.util.dataManager;
+import net.naturva.morphie.mr.util.DataManager;
 
 public class Commands implements CommandExecutor {
 	
@@ -80,7 +79,7 @@ public class Commands implements CommandExecutor {
 				UUID uuid = player.getUniqueId();
 				if (args.length == 1) {
 					if (sender.hasPermission("morphredeem.credits")) {
-						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("PlayerCreditsMessage").replace("%CREDITS%", new dataManager(plugin).getData(uuid, "Credits"))));
+						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("PlayerCreditsMessage").replace("%CREDITS%", new DataManager(plugin).getData(uuid, "Credits"))));
 						return true;
 					} else {
 						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("NoPermsMessage")));
@@ -92,13 +91,13 @@ public class Commands implements CommandExecutor {
 						OfflinePlayer offTarget = null;
 						if (Bukkit.getPlayer(args[1]) != null) {
 							target = Bukkit.getPlayer(args[1]);
-							String targetCredits = new dataManager(plugin).getData(target.getUniqueId(), "Credits");
+							String targetCredits = new DataManager(plugin).getData(target.getUniqueId(), "Credits");
 							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("OtherPlayerCreditMessage").replace("%PLAYER%", target.getName()).replace("%CREDITS%", targetCredits)));
 							return true;
 						} else {
 							offTarget = (OfflinePlayer)Bukkit.getServer().getOfflinePlayer(args[1]);
 							if (getFileExists(offTarget.getUniqueId())) {
-								String targetCredits = new dataManager(plugin).getData(offTarget.getUniqueId(), "Credits");
+								String targetCredits = new DataManager(plugin).getData(offTarget.getUniqueId(), "Credits");
 								sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("OtherPlayerCreditMessage").replace("%PLAYER%", offTarget.getName()).replace("%CREDITS%", targetCredits)));
 								return true;	
 							} else {
@@ -139,7 +138,7 @@ public class Commands implements CommandExecutor {
 			        	targetUUID = UUID.fromString(args[1]);
 			        	target = Bukkit.getPlayer(targetUUID);
 						if (getFileExists(targetUUID)) {
-							new dataManager(plugin).updateData(targetUUID, +amount, "Credits", "add");
+							new DataManager(plugin).updateData(targetUUID, +amount, "Credits", "add");
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditAddSuccessMessage")));
 			            	target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditAddMessage").replace("%CREDITS%", "" + amount)));
 			            	return true;
@@ -151,7 +150,7 @@ public class Commands implements CommandExecutor {
 						offTarget = (OfflinePlayer)Bukkit.getServer().getOfflinePlayer(args[1]);
 						targetUUID = offTarget.getUniqueId();
 						if (getFileExists(targetUUID)) {
-							new dataManager(plugin).updateData(targetUUID, +amount, "Credits", "add");
+							new DataManager(plugin).updateData(targetUUID, +amount, "Credits", "add");
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditAddSuccessMessage")));
 							return true;
 						} else {
@@ -159,7 +158,7 @@ public class Commands implements CommandExecutor {
 							return true;
 						}
 			        }
-					new dataManager(plugin).updateData(targetUUID, +amount, "Credits", "add");
+					new DataManager(plugin).updateData(targetUUID, +amount, "Credits", "add");
 		            if (sender == target) {
 		            	target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditAddMessage").replace("%CREDITS%", "" + amount)));
 		            	return true;
@@ -197,7 +196,7 @@ public class Commands implements CommandExecutor {
 					if (Bukkit.getPlayer(args[1]) != null) {
 			        	target = Bukkit.getPlayer(args[1]);
 			        	targetUUID = target.getUniqueId();
-			        	credits = Integer.parseInt(new dataManager(plugin).getData(targetUUID, "Credits"));
+			        	credits = Integer.parseInt(new DataManager(plugin).getData(targetUUID, "Credits"));
 			            if (amount > credits) {
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Remove")));
 			            	return true; 
@@ -205,13 +204,13 @@ public class Commands implements CommandExecutor {
 					} else if (checkIfUUID(args[1]) == true) {
 			        	targetUUID = UUID.fromString(args[1]);
 			        	target = Bukkit.getPlayer(targetUUID);
-			        	credits = Integer.parseInt(new dataManager(plugin).getData(targetUUID, "Credits"));
+			        	credits = Integer.parseInt(new DataManager(plugin).getData(targetUUID, "Credits"));
 			            if (amount > credits) {
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Remove")));
 			            	return true; 
 			            }
 						if (getFileExists(targetUUID)) {
-							new dataManager(plugin).updateData(targetUUID, -amount, "Credits", "remove");
+							new DataManager(plugin).updateData(targetUUID, -amount, "Credits", "remove");
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditRemoveSuccessMessage")));
 							return true;
 						} else {
@@ -221,13 +220,13 @@ public class Commands implements CommandExecutor {
 			        } else if (checkIfUUID(args[1]) == false && Bukkit.getPlayer(args[1]) == null) {
 						offTarget = (OfflinePlayer)Bukkit.getServer().getOfflinePlayer(args[1]);
 						targetUUID = offTarget.getUniqueId();
-						credits = Integer.parseInt(new dataManager(plugin).getData(targetUUID, "Credits"));
+						credits = Integer.parseInt(new DataManager(plugin).getData(targetUUID, "Credits"));
 			            if (amount > credits) {
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Remove")));
 			            	return true; 
 			            }
 						if (getFileExists(targetUUID)) {
-							new dataManager(plugin).updateData(targetUUID, -amount, "Credits", "remove");
+							new DataManager(plugin).updateData(targetUUID, -amount, "Credits", "remove");
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditRemoveSuccessMessage")));
 							return true;
 						} else {
@@ -239,7 +238,7 @@ public class Commands implements CommandExecutor {
 		            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Remove")));
 		            	return true; 
 		            }
-		            new dataManager(plugin).updateData(targetUUID, -amount, "Credits", "remove");
+		            new DataManager(plugin).updateData(targetUUID, -amount, "Credits", "remove");
 		            if (sender == target) {
 		            	target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditRemoveMessage").replace("%CREDITS%", "" + amount)));
 		            	return true;
@@ -280,7 +279,7 @@ public class Commands implements CommandExecutor {
 			        	targetUUID = UUID.fromString(args[1]);
 			        	target = Bukkit.getPlayer(targetUUID);
 						if (getFileExists(targetUUID)) {
-							new dataManager(plugin).updateData(targetUUID, amount, "Credits", "set");
+							new DataManager(plugin).updateData(targetUUID, amount, "Credits", "set");
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditSetSuccessMessage")));
 							return true;
 						} else {
@@ -291,7 +290,7 @@ public class Commands implements CommandExecutor {
 						offTarget = (OfflinePlayer)Bukkit.getServer().getOfflinePlayer(args[1]);
 						targetUUID = offTarget.getUniqueId();
 						if (getFileExists(targetUUID)) {
-							new dataManager(plugin).updateData(targetUUID, amount, "Credits", "set");
+							new DataManager(plugin).updateData(targetUUID, amount, "Credits", "set");
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditSetSuccessMessage")));
 							return true;
 						} else {
@@ -299,7 +298,7 @@ public class Commands implements CommandExecutor {
 							return true;
 						}
 			        }
-					new dataManager(plugin).updateData(targetUUID, amount, "Credits", "set");
+					new DataManager(plugin).updateData(targetUUID, amount, "Credits", "set");
 		            if (sender == target) {
 		            	target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditSetMessage").replace("%CREDITS%", "" + amount)));
 		            	return true;
@@ -331,7 +330,7 @@ public class Commands implements CommandExecutor {
 		            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Send")));
 		            	return true;
 		            }
-		            int senderCreds = Integer.parseInt(new dataManager(plugin).getData(commandSender.getUniqueId(), "Credits"));
+		            int senderCreds = Integer.parseInt(new DataManager(plugin).getData(commandSender.getUniqueId(), "Credits"));
 		            if (amount > senderCreds) {
 		            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidCredits")));
 		            	return true; 
@@ -346,8 +345,8 @@ public class Commands implements CommandExecutor {
 						offTarget = (OfflinePlayer)Bukkit.getServer().getOfflinePlayer(args[1]);
 						targetUUID = offTarget.getUniqueId();
 						if (getFileExists(targetUUID)) {
-							new dataManager(plugin).updateData(targetUUID, +amount, "Credits", "add");
-							new dataManager(plugin).updateData(commandSender.getUniqueId(), -amount, "Credits", "remove");
+							new DataManager(plugin).updateData(targetUUID, +amount, "Credits", "add");
+							new DataManager(plugin).updateData(commandSender.getUniqueId(), -amount, "Credits", "remove");
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditSendSuccessMessage").replace("%TARGET%", offTarget.getName()).replace("%CREDITS%", "" + amount)));
 							return true;
 						} else {
@@ -355,8 +354,8 @@ public class Commands implements CommandExecutor {
 							return true;
 						}
 			        }
-					new dataManager(plugin).updateData(targetUUID, +amount, "Credits", "add");
-					new dataManager(plugin).updateData(commandSender.getUniqueId(), -amount, "Credits", "remove");
+					new DataManager(plugin).updateData(targetUUID, +amount, "Credits", "add");
+					new DataManager(plugin).updateData(commandSender.getUniqueId(), -amount, "Credits", "remove");
 		            if (sender == target) {
 		            	target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditSendMessage").replace("%SENDER%", sender.getName()).replace("%CREDITS%", "" + amount)));
 		            	return true;
@@ -385,7 +384,7 @@ public class Commands implements CommandExecutor {
 			        	targetUUID = UUID.fromString(args[1]);
 			        	target = Bukkit.getPlayer(targetUUID);
 						if (getFileExists(targetUUID)) {
-							new dataManager(plugin).updateData(targetUUID, 0, "Credits", "set");
+							new DataManager(plugin).updateData(targetUUID, 0, "Credits", "set");
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditResetSuccessMessage")));
 							return true;
 						} else {
@@ -396,7 +395,7 @@ public class Commands implements CommandExecutor {
 						offTarget = (OfflinePlayer)Bukkit.getServer().getOfflinePlayer(args[1]);
 						targetUUID = offTarget.getUniqueId();
 						if (getFileExists(targetUUID)) {
-							new dataManager(plugin).updateData(targetUUID, 0, "Credits", "set");
+							new DataManager(plugin).updateData(targetUUID, 0, "Credits", "set");
 			            	sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditResetSuccessMessage")));
 							return true;
 						} else {
@@ -404,7 +403,7 @@ public class Commands implements CommandExecutor {
 							return true;
 						}
 			        }
-					new dataManager(plugin).updateData(targetUUID, 0, "Credits", "set");
+					new DataManager(plugin).updateData(targetUUID, 0, "Credits", "set");
 		            if (sender == target) {
 		            	target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditResetMessage")));
 		            	return true;
@@ -444,7 +443,7 @@ public class Commands implements CommandExecutor {
 			        	return true;
 			        }
 					int amount2 = Integer.parseInt(args[1]);
-					int credits = Integer.parseInt(new dataManager(plugin).getData(uuid, "Credits"));
+					int credits = Integer.parseInt(new DataManager(plugin).getData(uuid, "Credits"));
 					if (new McMMOMethods().doesSkillExist(player, skill) == false) {
 						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidSkill")));
 						return true;
@@ -472,8 +471,8 @@ public class Commands implements CommandExecutor {
 			          player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + message));
 			          return true;
 			        } else {	
-			        	new dataManager(plugin).updateData(uuid, +amount2, "Credits_Spent", "add");
-			        	new dataManager(plugin).updateData(uuid, -amount2, "Credits", "remove");
+			        	new DataManager(plugin).updateData(uuid, +amount2, "Credits_Spent", "add");
+			        	new DataManager(plugin).updateData(uuid, -amount2, "Credits", "remove");
 		          
 			        	ExperienceAPI.addLevel(player, skill, amount2);
 			        	String message = this.plugin.getMessage("CreditAssignmentSuccess");

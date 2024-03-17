@@ -12,8 +12,7 @@ import com.gmail.nossr50.api.ExperienceAPI;
 
 import net.md_5.bungee.api.ChatColor;
 import net.naturva.morphie.mr.MorphRedeem;
-import net.naturva.morphie.mr.files.PlayerFileMethods;
-import net.naturva.morphie.mr.util.dataManager;
+import net.naturva.morphie.mr.util.DataManager;
 
 public class RedeemChatEvent implements Listener {
 
@@ -48,7 +47,7 @@ public class RedeemChatEvent implements Listener {
 	        	return;
 	        }
 	        int amountToAdd = Integer.parseInt(chatMessage);
-	        int credits = Integer.parseInt(new dataManager(plugin).getData(uuid, "Credits"));
+	        int credits = Integer.parseInt(new DataManager(plugin).getData(uuid, "Credits"));
 	        if (credits < amountToAdd) {
 	        	player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidCredits")));
 	        	return;
@@ -75,8 +74,8 @@ public class RedeemChatEvent implements Listener {
 	          }
 	          player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + message));
 	        } else {
-	        	new dataManager(plugin).updateData(uuid, +amountToAdd, "Credits_Spent", "add");
-	        	new dataManager(plugin).updateData(uuid, -amountToAdd, "Credits", "remove");
+	        	new DataManager(plugin).updateData(uuid, +amountToAdd, "Credits_Spent", "add");
+	        	new DataManager(plugin).updateData(uuid, -amountToAdd, "Credits", "remove");
 	        	
 	        	ExperienceAPI.addLevel(player, skill, amountToAdd);
 	        	String message = this.plugin.getMessage("CreditAssignmentSuccess");

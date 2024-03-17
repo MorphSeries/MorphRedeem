@@ -4,7 +4,6 @@ import org.bukkit.entity.Player;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import net.naturva.morphie.mr.MorphRedeem;
-import net.naturva.morphie.mr.files.PlayerFileMethods;
 
 public class MorphRedeemExpansion extends PlaceholderExpansion {
 
@@ -105,12 +104,12 @@ public class MorphRedeemExpansion extends PlaceholderExpansion {
 
         // %someplugin_placeholder1%
         if(identifier.equals("credits")){
-        	return new dataManager(plugin).getData(player.getUniqueId(), "Credits");
+        	return new DataManager(plugin).getData(player.getUniqueId(), "Credits");
         }
 
         // %someplugin_placeholder2%
         if(identifier.equals("creditsspent")){
-            return new dataManager(plugin).getData(player.getUniqueId(), "Credits_Spent");
+            return new DataManager(plugin).getData(player.getUniqueId(), "Credits_Spent");
         }
  
         // We return null if an invalid placeholder (f.e. %someplugin_placeholder3%) 

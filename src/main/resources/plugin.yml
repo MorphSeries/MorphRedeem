@@ -1,5 +1,5 @@
 name: MorphRedeem
-version: 1.2.4
+version: ${project.version}
 main: net.naturva.morphie.mr.MorphRedeem
 author: Morphie
 api-version: 1.13
