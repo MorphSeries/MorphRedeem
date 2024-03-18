@@ -16,12 +16,11 @@ public class UpdateChecker {
 
 
     // https://api.spigotmc.org/legacy/update.php?resource=67435
-    public UpdateChecker(JavaPlugin plugin, int projectID) {
+    public UpdateChecker(JavaPlugin plugin) {
         this.plugin = plugin;
         this.newVersion = plugin.getDescription().getVersion();
-        this.project = projectID;
         try {
-            this.checkURL = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + projectID);
+            this.checkURL = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + project);
         } catch (MalformedURLException exception) {
             plugin.getLogger().info("Unable to check for updates: " + exception.getMessage());
         }
@@ -39,7 +38,7 @@ public class UpdateChecker {
     }
 
     public String getResourceURL() {
-        return "https://www.spigotmc.org/resources/" + this.project;
+        return "https://www.spigotmc.org/resources/" + this.getProjectID();
     }
 
     public boolean checkForUpdates() throws Exception {

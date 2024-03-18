@@ -4,6 +4,7 @@ net\naturva\morphie\mr\util\MetricsLite$2.class
 net\naturva\morphie\mr\util\MetricsLite$1.class
 net\naturva\morphie\mr\files\Messages.class
 net\naturva\morphie\mr\events\PlayerFileEvent$1.class
+net\naturva\morphie\mr\util\StringUtils.class
 net\naturva\morphie\mr\Commands.class
 net\naturva\morphie\mr\MorphRedeem.class
 net\naturva\morphie\mr\util\DataManager.class

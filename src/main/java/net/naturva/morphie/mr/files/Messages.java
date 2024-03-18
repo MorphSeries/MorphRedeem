@@ -163,10 +163,11 @@ public class Messages implements Listener {
 		cfg.addDefault("NoSkillCap", "&bNone");
 		cfg.addDefault("OtherPlayerCreditMessage", "&b%PLAYER% &7currently has &b%CREDITS% &7credits.");
 		cfg.addDefault("PlayerCreditsMessage", "&7You currently have &b%CREDITS% &7credits.");
-		cfg.addDefault("Prefix", "&9&lMorphRedeem &8&l➙ ");
+		cfg.addDefault("Prefix", "&#5555FF&lM&#5566FF&lo&#5577FF&lr&#5588FF&lp&#5599FF&lh&#55AAFF&lR&#55BBFF&le&#55CCFF&ld&#55DDFF&le&#55EEFF&le&#55FFFF&lm &8&l➙ ");
 		cfg.addDefault("ReloadMessage", "&7Plugin files successfully reloaded!");
 		cfg.addDefault("SkillCapReached", "&7You tried to get to level &b%LEVEL% &7in &b%SKILL%&7, but the skill cap is &b%CAP%&7.");
 		cfg.addDefault("SkillDisabledMessage", "&7This skill has been disabled by administration!");
 		cfg.addDefault("SpigotLink", "&7https://www.spigotmc.org/resources/morphredeem-mcmmo-credits-1-14.67435/");
+		cfg.addDefault("UpdateMessage", "&7New plugin version found. New Version&8: &b%VERSION% &8(&7%LINK%&8)");
 	}
 }

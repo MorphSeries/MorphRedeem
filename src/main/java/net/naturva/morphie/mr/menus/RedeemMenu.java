@@ -3,6 +3,7 @@ package net.naturva.morphie.mr.menus;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import net.naturva.morphie.mr.util.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -24,7 +25,7 @@ public class RedeemMenu implements Listener {
 	}
 	
 	public void openGUIRedeem(Player player) {
-		Inventory Redeem = Bukkit.createInventory(null, 45, ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Menu.Title")));
+		Inventory Redeem = Bukkit.createInventory(null, 45, new StringUtils().addColor(this.plugin.getMessage("Menu.Title")));
 	
 		UUID uuid = player.getUniqueId();
 		Boolean skillDisable = this.plugin.getConfig().getBoolean("Settings.DisabledSkills.Enabled");
@@ -33,13 +34,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Acrobatics = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Acrobatics.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Acrobatics") != 2147483647) {
-		    	Acrobatics.add(ChatColor.translateAlternateColorCodes('&', s)
+		    	Acrobatics.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Acrobatics"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Acrobatics")));
+		    			.replace("%LEVELCAP%", "" + new McMMOMethods().getSkillCap("Acrobatics")));
 	    	} else {
-		    	Acrobatics.add(ChatColor.translateAlternateColorCodes('&', s)
+		    	Acrobatics.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Acrobatics"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	    
@@ -52,13 +53,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Alchemy = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Alchemy.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Alchemy") != 2147483647) {
-	    		Alchemy.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Alchemy.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Alchemy"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Alchemy")));
 	    	} else {
-	    		Alchemy.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Alchemy.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Alchemy"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	
@@ -71,13 +72,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Archery = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Archery.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Archery") != 2147483647) {
-	    		Archery.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Archery.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Archery"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Archery")));
 	    	} else {
-	    		Archery.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Archery.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Archery"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	    
@@ -90,13 +91,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Axes = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Axes.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Axes") != 2147483647) {
-	    		Axes.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Axes.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Axes"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Axes")));
 	    	} else {
-	    		Axes.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Axes.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Axes"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	
@@ -109,13 +110,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Excavation = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Excavation.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Excavation") != 2147483647) {
-	    		Excavation.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Excavation.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Excavation"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Excavation")));
 	    	} else {
-	    		Excavation.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Excavation.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Excavation"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	
@@ -128,13 +129,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Fishing = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Fishing.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Fishing") != 2147483647) {
-	    		Fishing.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Fishing.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Fishing"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Fishing")));
 	    	} else {
-	    		Fishing.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Fishing.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Fishing"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	
@@ -147,13 +148,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Herbalism = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Herbalism.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Herbalism") != 2147483647) {
-	    		Herbalism.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Herbalism.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Herbalism"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Herbalism")));
 	    	} else {
-	    		Herbalism.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Herbalism.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Herbalism"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	
@@ -166,13 +167,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Mining = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Mining.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Mining") != 2147483647) {
-	    		Mining.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Mining.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Mining"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Mining")));
 	    	} else {
-	    		Mining.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Mining.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Mining"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	
@@ -185,13 +186,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Repair = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Repair.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Repair") != 2147483647) {
-	    		Repair.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Repair.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Repair"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Repair")));
 	    	} else {
-	    		Repair.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Repair.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Repair"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	
@@ -204,13 +205,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Swords = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Swords.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Swords") != 2147483647) {
-	    		Swords.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Swords.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Swords"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Swords")));
 	    	} else {
-	    		Swords.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Swords.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Swords"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	
@@ -223,13 +224,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Taming = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Taming.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Taming") != 2147483647) {
-	    		Taming.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Taming.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Taming"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Taming")));
 	    	} else {
-	    		Taming.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Taming.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Taming"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	
@@ -242,13 +243,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Unarmed = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Unarmed.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Unarmed") != 2147483647) {
-	    		Unarmed.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Unarmed.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Unarmed"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Unarmed")));
 	    	} else {
-	    		Unarmed.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Unarmed.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Unarmed"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	
@@ -261,13 +262,13 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> Woodcutting = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Woodcutting.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Woodcutting") != 2147483647) {
-	    		Woodcutting.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Woodcutting.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Woodcutting"))
 		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Woodcutting")));
 	    	} else {
-	    		Woodcutting.add(ChatColor.translateAlternateColorCodes('&', s)
+	    		Woodcutting.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Woodcutting"))
-		    			.replace("%LEVELCAP%", "" + ChatColor.translateAlternateColorCodes('&', plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	
@@ -279,7 +280,7 @@ public class RedeemMenu implements Listener {
 	    
 		ArrayList<String> mcMMOCredits = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.mcMMOCredits.Lore")) {
-	    	mcMMOCredits.add(ChatColor.translateAlternateColorCodes('&', s)
+	    	mcMMOCredits.add(new StringUtils().addColor(s)
 	    			.replace("%MCMMOCREDITS%", "" + new DataManager(plugin).getData(uuid, "Credits")));
 		}
 	
@@ -287,7 +288,7 @@ public class RedeemMenu implements Listener {
 
 		ArrayList<String> CreditsSpent = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.CreditsSpent.Lore")) {
-	    	CreditsSpent.add(ChatColor.translateAlternateColorCodes('&', s)
+	    	CreditsSpent.add(new StringUtils().addColor(s)
 	    			.replace("%CREDITSSPENT%", "" + new DataManager(plugin).getData(uuid, "Credits_Spent")));
 		}
 	
@@ -296,9 +297,9 @@ public class RedeemMenu implements Listener {
 		ArrayList<String> PluginCredits = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.PluginCredits.Lore")) {
 			if (s.contains("%VERSION%")) {
-				PluginCredits.add(ChatColor.translateAlternateColorCodes('&', s.replace("%VERSION%", this.plugin.getDescription().getVersion())));
+				PluginCredits.add(new StringUtils().addColor(s.replace("%VERSION%", this.plugin.getDescription().getVersion())));
 			} else {
-				PluginCredits.add(ChatColor.translateAlternateColorCodes('&', s));
+				PluginCredits.add(new StringUtils().addColor(s));
 			}
 		}
 	    

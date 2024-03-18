@@ -2,6 +2,7 @@ package net.naturva.morphie.mr.events.chat;
 
 import java.util.UUID;
 
+import net.naturva.morphie.mr.util.StringUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -37,27 +38,27 @@ public class RedeemChatEvent implements Listener {
 	        if (chatMessage.contains(" ")) {
 	        	chatMessage = chatMessage.replaceAll(" ", "");
 	        }
-	        chatMessage = ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', chatMessage));
+	        chatMessage = ChatColor.stripColor(new StringUtils().addColor(chatMessage));
 	        this.plugin.addCredits.remove(player);
 	        try {
 	        	Integer.parseInt(chatMessage);
 	        }
 	        catch (NumberFormatException e1) {
-	        	player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidNumber")));
+	        	player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidNumber")));
 	        	return;
 	        }
 	        int amountToAdd = Integer.parseInt(chatMessage);
 	        int credits = Integer.parseInt(new DataManager(plugin).getData(uuid, "Credits"));
 	        if (credits < amountToAdd) {
-	        	player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidCredits")));
+	        	player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidCredits")));
 	        	return;
 	        }
 	        if (amountToAdd < 0) {
-	        	player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidNumberNegative")));
+	        	player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidNumberNegative")));
 	        	return;
 	        }
 	        if (amountToAdd == 0) {
-	        	player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditAssignmentCanceled")));
+	        	player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditAssignmentCanceled")));
 	        	return;
 	        }
 	        int cap = ExperienceAPI.getLevelCap(skill);
@@ -72,7 +73,7 @@ public class RedeemChatEvent implements Listener {
 	          if (message.contains("%LEVEL%")) {
 	        	  message = message.replaceAll("%LEVEL%", "" + (ExperienceAPI.getLevel(player, skill) + amountToAdd));
 	          }
-	          player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("ErrorPrefix") + message));
+	          player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + message));
 	        } else {
 	        	new DataManager(plugin).updateData(uuid, +amountToAdd, "Credits_Spent", "add");
 	        	new DataManager(plugin).updateData(uuid, -amountToAdd, "Credits", "remove");
@@ -85,7 +86,7 @@ public class RedeemChatEvent implements Listener {
 	        	if (message.contains("%CREDITS%")) {
 	        		message = message.replaceAll("%CREDITS%", "" + amountToAdd);
 	        	}
-	        	player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getMessage("Prefix") + message));
+	        	player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("Prefix") + message));
 	        }
 		}
 	}
