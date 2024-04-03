@@ -126,7 +126,7 @@ public class Messages implements Listener {
 		list4.add("&b&oClick for spigot link!");
 
 		cfg.addDefault("McMMOPlayerNotLoadedMessage", "&7Your &bmcMMO player file &7has not been loaded yet! Please try again in a &bfew seconds&7.");
-		cfg.addDefault("Menu.Title", "&9&lMorphRedeem&8&l:");
+		cfg.addDefault("Menu.Title", "&#5555FF&lM&#5566FF&lo&#5577FF&lr&#5588FF&lp&#5599FF&lh&#55AAFF&lR&#55BBFF&le&#55CCFF&ld&#55DDFF&le&#55EEFF&le&#55FFFF&lm&8&l:");
 		cfg.addDefault("Menu.Acrobatics.Name", "&9&lAcrobatics&8&l:");
 		cfg.addDefault("Menu.Acrobatics.Lore", list);
 		cfg.addDefault("Menu.Alchemy.Name", "&9&lAlchemy&8&l:");
@@ -135,6 +135,8 @@ public class Messages implements Listener {
 		cfg.addDefault("Menu.Archery.Lore", list);
 		cfg.addDefault("Menu.Axes.Name", "&9&lAxes&8&l:");
 		cfg.addDefault("Menu.Axes.Lore", list);
+		cfg.addDefault("Menu.Crossbows.Name", "&9&lCrossbows&8&l:");
+		cfg.addDefault("Menu.Crossbows.Lore", list);
 		cfg.addDefault("Menu.Excavation.Name", "&9&lExcavation&8&l:");
 		cfg.addDefault("Menu.Excavation.Lore", list);
 		cfg.addDefault("Menu.Fishing.Name", "&9&lFishing&8&l:");
@@ -149,6 +151,8 @@ public class Messages implements Listener {
 		cfg.addDefault("Menu.Swords.Lore", list);
 		cfg.addDefault("Menu.Taming.Name", "&9&lTaming&8&l:");
 		cfg.addDefault("Menu.Taming.Lore", list);
+		cfg.addDefault("Menu.Tridents.Name", "&9&lTridents&8&l:");
+		cfg.addDefault("Menu.Tridents.Lore", list);
 		cfg.addDefault("Menu.Unarmed.Name", "&9&lUnarmed&8&l:");
 		cfg.addDefault("Menu.Unarmed.Lore", list);
 		cfg.addDefault("Menu.Woodcutting.Name", "&9&lWoodcutting&8&l:");

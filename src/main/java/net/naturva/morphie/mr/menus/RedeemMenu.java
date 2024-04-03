@@ -3,6 +3,7 @@ package net.naturva.morphie.mr.menus;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import com.gmail.nossr50.util.player.UserManager;
 import net.naturva.morphie.mr.util.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -106,6 +107,25 @@ public class RedeemMenu implements Listener {
 	    } else {
 	    	Redeem.setItem(13, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Axes.ItemName"), 1, this.plugin.getMessage("Menu.Axes.Name"), Axes, false));
 	    }
+
+		ArrayList<String> Crossbows = new ArrayList();
+		for (String s : plugin.getMessageList("Menu.Crossbows.Lore")) {
+			if (new McMMOMethods().getSkillCap("Crossbows") != 2147483647) {
+				Crossbows.add(new StringUtils().addColor(s)
+						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Crossbows"))
+						.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Crossbows")));
+			} else {
+				Crossbows.add(new StringUtils().addColor(s)
+						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Crossbows"))
+						.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+			}
+		}
+
+		if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Crossbows")) {
+			Redeem.setItem(14, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Crossbows.Name"), Crossbows, false));
+		} else {
+			Redeem.setItem(14, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Crossbows.ItemName"), 1, this.plugin.getMessage("Menu.Crossbows.Name"), Crossbows, false));
+		}
 	    
 		ArrayList<String> Excavation = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Excavation.Lore")) {
@@ -121,9 +141,9 @@ public class RedeemMenu implements Listener {
 		}
 	
 	    if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Excavation")) {
-	    	Redeem.setItem(14, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Excavation.Name"), Excavation, false));
+	    	Redeem.setItem(19, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Excavation.Name"), Excavation, false));
 	    } else {
-	    	Redeem.setItem(14, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Excavation.ItemName"), 1, this.plugin.getMessage("Menu.Excavation.Name"), Excavation, false));
+	    	Redeem.setItem(19, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Excavation.ItemName"), 1, this.plugin.getMessage("Menu.Excavation.Name"), Excavation, false));
 	    }
 	    
 		ArrayList<String> Fishing = new ArrayList();
@@ -197,9 +217,9 @@ public class RedeemMenu implements Listener {
 		}
 	
 	    if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Repair")) {
-	    	Redeem.setItem(28, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Repair.Name"), Repair, false));
+	    	Redeem.setItem(23, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Repair.Name"), Repair, false));
 	    } else {
-	    	Redeem.setItem(28, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Repair.ItemName"), 1, this.plugin.getMessage("Menu.Repair.Name"), Repair, false));
+	    	Redeem.setItem(23, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Repair.ItemName"), 1, this.plugin.getMessage("Menu.Repair.Name"), Repair, false));
 	    }
 	    
 		ArrayList<String> Swords = new ArrayList();
@@ -216,9 +236,9 @@ public class RedeemMenu implements Listener {
 		}
 	
 	    if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Swords")) {
-	    	Redeem.setItem(29, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Swords.Name"), Swords, false));
+	    	Redeem.setItem(28, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Swords.Name"), Swords, false));
 	    } else {
-	    	Redeem.setItem(29, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Swords.ItemName"), 1, this.plugin.getMessage("Menu.Swords.Name"), Swords, false));
+	    	Redeem.setItem(28, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Swords.ItemName"), 1, this.plugin.getMessage("Menu.Swords.Name"), Swords, false));
 	    }
 	    
 		ArrayList<String> Taming = new ArrayList();
@@ -235,10 +255,29 @@ public class RedeemMenu implements Listener {
 		}
 	
 	    if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Taming")) {
-	    	Redeem.setItem(30, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Taming.Name"), Taming, false));
+	    	Redeem.setItem(29, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Taming.Name"), Taming, false));
 	    } else {
-	    	Redeem.setItem(30, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Taming.ItemName"), 1, this.plugin.getMessage("Menu.Taming.Name"), Taming, false));
+	    	Redeem.setItem(29, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Taming.ItemName"), 1, this.plugin.getMessage("Menu.Taming.Name"), Taming, false));
 	    }
+
+		ArrayList<String> Tridents = new ArrayList();
+		for (String s : plugin.getMessageList("Menu.Tridents.Lore")) {
+			if (new McMMOMethods().getSkillCap("Tridents") != 2147483647) {
+				Tridents.add(new StringUtils().addColor(s)
+						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Tridents"))
+						.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Tridents")));
+			} else {
+				Tridents.add(new StringUtils().addColor(s)
+						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Tridents"))
+						.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+			}
+		}
+
+		if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Tridents")) {
+			Redeem.setItem(30, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Tridents.Name"), Tridents, false));
+		} else {
+			Redeem.setItem(30, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Tridents.ItemName"), 1, this.plugin.getMessage("Menu.Tridents.Name"), Tridents, false));
+		}
 	    
 		ArrayList<String> Unarmed = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Unarmed.Lore")) {
@@ -333,8 +372,6 @@ public class RedeemMenu implements Listener {
 		Redeem.setItem(4, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 		Redeem.setItem(5, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 		Redeem.setItem(7, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
-		Redeem.setItem(19, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
-		Redeem.setItem(23, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 		Redeem.setItem(37, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 		Redeem.setItem(38, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 		Redeem.setItem(39, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
