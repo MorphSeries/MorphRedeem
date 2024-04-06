@@ -7,8 +7,7 @@ public class McMMOMethods {
 
 	public int getSkillCap(String skill) {
 		try {
-			int num = ExperienceAPI.getLevelCap(skill);
-			return num;
+            return ExperienceAPI.getLevelCap(skill);
 		} catch (NullPointerException e1) {
 			return 0;
 		}
@@ -16,8 +15,23 @@ public class McMMOMethods {
 
 	public int getSkillLevel(Player player, String skill) {
 		try {
-			int num = ExperienceAPI.getLevel(player, skill);
-			return num;
+            return ExperienceAPI.getLevel(player, skill);
+		} catch (NullPointerException e1) {
+			return 0;
+		}
+	}
+
+	public int getSkillXP(Player player, String skill) {
+		try {
+			return ExperienceAPI.getXP(player, skill);
+		} catch (NullPointerException e1) {
+			return 0;
+		}
+	}
+
+	public int getSkillXPNeeded(Player player, String skill) {
+		try {
+			return ExperienceAPI.getXPToNextLevel(player, skill);
 		} catch (NullPointerException e1) {
 			return 0;
 		}
@@ -30,5 +44,10 @@ public class McMMOMethods {
 		} catch (NullPointerException e1) {
 			return false;
 		}
+	}
+	
+
+	public void applyXP(Player player, String skill, int xp) {
+		ExperienceAPI.addModifiedXP(player, skill, xp);
 	}
 }

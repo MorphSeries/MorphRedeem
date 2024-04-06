@@ -29,29 +29,33 @@ public class RedeemMenu implements Listener {
 		Inventory Redeem = Bukkit.createInventory(null, 45, new StringUtils().addColor(this.plugin.getMessage("Menu.Title")));
 	
 		UUID uuid = player.getUniqueId();
-		Boolean skillDisable = this.plugin.getConfig().getBoolean("Settings.DisabledSkills.Enabled");
-		Boolean replaceItem = this.plugin.getConfig().getBoolean("Settings.DisabledSkills.ReplaceGUIItem.Enabled");
+		boolean skillDisable = this.plugin.getConfig().getBoolean("Settings.DisabledSkills.Enabled");
+		boolean replaceItem = this.plugin.getConfig().getBoolean("Settings.DisabledSkills.ReplaceGUIItem.Enabled");
 		
-		ArrayList<String> Acrobatics = new ArrayList();
+		ArrayList<String> Acrobatics = new ArrayList<>();
 	    for (String s : plugin.getMessageList("Menu.Acrobatics.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Acrobatics") != 2147483647) {
 		    	Acrobatics.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Acrobatics"))
-		    			.replace("%LEVELCAP%", "" + new McMMOMethods().getSkillCap("Acrobatics")));
+		    			.replace("%LEVELCAP%", "" + new McMMOMethods().getSkillCap("Acrobatics"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Acrobatics"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Acrobatics")));
 	    	} else {
 		    	Acrobatics.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Acrobatics"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Acrobatics"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Acrobatics")));
 	    	}
 		}
 	    
-	    if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Acrobatics")) {
+	    if (skillDisable && replaceItem && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Acrobatics")) {
 	    	Redeem.setItem(10, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Acrobatics.Name"), Acrobatics, false));
 	    } else {
 			Redeem.setItem(10, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Acrobatics.ItemName"), 1, this.plugin.getMessage("Menu.Acrobatics.Name"), Acrobatics, false));
 	    }
 	    
-		ArrayList<String> Alchemy = new ArrayList();
+		ArrayList<String> Alchemy = new ArrayList<>();
 	    for (String s : plugin.getMessageList("Menu.Alchemy.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Alchemy") != 2147483647) {
 	    		Alchemy.add(new StringUtils().addColor(s)
@@ -60,7 +64,7 @@ public class RedeemMenu implements Listener {
 	    	} else {
 	    		Alchemy.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Alchemy"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
 	    	}
 		}
 	

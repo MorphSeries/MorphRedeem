@@ -8,7 +8,7 @@
 #
 #============================================================================================================================|
 #
-# Plugin Version: 1.2.5
+# Plugin Version: 1.3.0
 # Spigot Link: https://www.spigotmc.org/resources/morphredeem-mcmmo-credits-1-14.67435/
 # Discord Link: https://discord.gg/6bnU9xn
 # Author's Discord: Morphie#6969
@@ -35,6 +35,11 @@ Settings:
     Enabled: true
   # Enable or disable the plugins update checker. (Admins and Console messages for new plugin updates.)
   UpdateChecker: true
+  # By default, the plugin will convert credits into a skills level. Enabling this will convert credits into a skills XP.
+  mcMMOSkillXP:
+    Enabled: false
+    # How much xp should be given per credit redeemed at default.
+    XPpercredit: 1
   # Change the Item types in the main /morphredeem menu.
   GUI:
     Acrobatics:
