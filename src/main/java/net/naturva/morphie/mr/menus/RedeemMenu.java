@@ -60,11 +60,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Alchemy") != 2147483647) {
 	    		Alchemy.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Alchemy"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Alchemy")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Alchemy"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Alchemy"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Alchemy")));
 	    	} else {
 	    		Alchemy.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Alchemy"))
-		    			.replace("%LEVELCAP%", new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Alchemy"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Alchemy")));
 	    	}
 		}
 	
@@ -79,11 +83,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Archery") != 2147483647) {
 	    		Archery.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Archery"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Archery")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Archery"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Archery"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Archery")));
 	    	} else {
 	    		Archery.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Archery"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Archery"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Archery")));
 	    	}
 		}
 	    
@@ -98,11 +106,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Axes") != 2147483647) {
 	    		Axes.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Axes"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Axes")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Axes"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Axes"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Axes")));
 	    	} else {
 	    		Axes.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Axes"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Axes"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Axes")));
 	    	}
 		}
 	
@@ -117,11 +129,15 @@ public class RedeemMenu implements Listener {
 			if (new McMMOMethods().getSkillCap("Crossbows") != 2147483647) {
 				Crossbows.add(new StringUtils().addColor(s)
 						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Crossbows"))
-						.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Crossbows")));
+						.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Crossbows"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Crossbows"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Crossbows")));
 			} else {
 				Crossbows.add(new StringUtils().addColor(s)
 						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Crossbows"))
-						.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+						.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Crossbows"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Crossbows")));
 			}
 		}
 
@@ -136,11 +152,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Excavation") != 2147483647) {
 	    		Excavation.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Excavation"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Excavation")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Excavation"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Excavation"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Excavation")));
 	    	} else {
 	    		Excavation.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Excavation"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Excavation"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Excavation")));
 	    	}
 		}
 	
@@ -155,11 +175,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Fishing") != 2147483647) {
 	    		Fishing.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Fishing"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Fishing")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Fishing"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Fishing"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Fishing")));
 	    	} else {
 	    		Fishing.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Fishing"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Fishing"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Fishing")));
 	    	}
 		}
 	
@@ -174,11 +198,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Herbalism") != 2147483647) {
 	    		Herbalism.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Herbalism"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Herbalism")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Herbalism"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Herbalism"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Herbalism")));
 	    	} else {
 	    		Herbalism.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Herbalism"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Herbalism"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Herbalism")));
 	    	}
 		}
 	
@@ -193,11 +221,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Mining") != 2147483647) {
 	    		Mining.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Mining"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Mining")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Mining"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Mining"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Mining")));
 	    	} else {
 	    		Mining.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Mining"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Mining"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Mining")));
 	    	}
 		}
 	
@@ -212,11 +244,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Repair") != 2147483647) {
 	    		Repair.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Repair"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Repair")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Repair"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Repair"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Repair")));
 	    	} else {
 	    		Repair.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Repair"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Repair"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Repair")));
 	    	}
 		}
 	
@@ -231,11 +267,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Swords") != 2147483647) {
 	    		Swords.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Swords"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Swords")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Swords"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Swords"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Swords")));
 	    	} else {
 	    		Swords.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Swords"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Swords"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Swords")));
 	    	}
 		}
 	
@@ -250,11 +290,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Taming") != 2147483647) {
 	    		Taming.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Taming"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Taming")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Taming"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Taming"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Taming")));
 	    	} else {
 	    		Taming.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Taming"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Taming"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Taming")));
 	    	}
 		}
 	
@@ -269,11 +313,15 @@ public class RedeemMenu implements Listener {
 			if (new McMMOMethods().getSkillCap("Tridents") != 2147483647) {
 				Tridents.add(new StringUtils().addColor(s)
 						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Tridents"))
-						.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Tridents")));
+						.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Tridents"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Tridents"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Tridents")));
 			} else {
 				Tridents.add(new StringUtils().addColor(s)
 						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Tridents"))
-						.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+						.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Tridents"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Tridents")));
 			}
 		}
 
@@ -288,11 +336,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Unarmed") != 2147483647) {
 	    		Unarmed.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Unarmed"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Unarmed")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Unarmed"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Unarmed"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Unarmed")));
 	    	} else {
 	    		Unarmed.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Unarmed"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Unarmed"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Unarmed")));
 	    	}
 		}
 	
@@ -307,11 +359,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Woodcutting") != 2147483647) {
 	    		Woodcutting.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Woodcutting"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Woodcutting")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Woodcutting"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Woodcutting"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Woodcutting")));
 	    	} else {
 	    		Woodcutting.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Woodcutting"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Woodcutting"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Woodcutting")));
 	    	}
 		}
 	
