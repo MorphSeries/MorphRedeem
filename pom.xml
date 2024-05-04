@@ -6,7 +6,7 @@
 
     <groupId>groupId</groupId>
     <artifactId>MorphRedeem</artifactId>
-    <version>1.3.0</version>
+    <version>1.3.0.1</version>
     <build>
         <finalName>MorphRedeem-${project.version}</finalName>
         <resources>

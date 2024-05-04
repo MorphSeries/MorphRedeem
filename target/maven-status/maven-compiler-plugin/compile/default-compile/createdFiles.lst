@@ -17,4 +17,5 @@ net\naturva\morphie\mr\files\PlayerFileMethods.class
 net\naturva\morphie\mr\menus\RedeemMenu.class
 net\naturva\morphie\mr\util\MorphRedeemExpansion.class
 net\naturva\morphie\mr\util\McMMOMethods.class
+net\naturva\morphie\mr\CommandsTabCompleter.class
 net\naturva\morphie\mr\util\Database\MySQLConnection.class

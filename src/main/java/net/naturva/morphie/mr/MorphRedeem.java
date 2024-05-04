@@ -53,6 +53,7 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 		getServer().getPluginManager().registerEvents(this.je, this);
 		
 		getCommand("mr").setExecutor(new Commands(this));
+		getCommand("mr").setTabCompleter(new CommandsTabCompleter(this));
 		
         new MetricsLite(this);
 
