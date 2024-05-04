@@ -108,6 +108,7 @@ public class Messages implements Listener {
 		list.add(" ");
 		list.add("&b➙ &7Level Cap&8: &7%LEVELCAP%");
 		list.add("&b➙ &7Skill Level&8: &7%SKILLLEVEL%");
+		list.add("&b➙ &7Skill XP&8: &7%SKILLXP%&8/&7%SKILLXP_NEEDED%");
 
 		List<String> list2 = new ArrayList<String>();
 		list2.add("&b➙ &7%MCMMOCREDITS%");
@@ -170,6 +171,7 @@ public class Messages implements Listener {
 		cfg.addDefault("Prefix", "&#5555FF&lM&#5566FF&lo&#5577FF&lr&#5588FF&lp&#5599FF&lh&#55AAFF&lR&#55BBFF&le&#55CCFF&ld&#55DDFF&le&#55EEFF&le&#55FFFF&lm &8&l➙ ");
 		cfg.addDefault("ReloadMessage", "&7Plugin files successfully reloaded!");
 		cfg.addDefault("SkillCapReached", "&7You tried to get to level &b%LEVEL% &7in &b%SKILL%&7, but the skill cap is &b%CAP%&7.");
+		cfg.addDefault("SkillXPCapReached", "&7You tried to apply &b%CREDITXP% xp &7to &b%SKILL%&7, but the xp required is &b%SKILLXP_NEEDED%&7.");
 		cfg.addDefault("SkillDisabledMessage", "&7This skill has been disabled by administration!");
 		cfg.addDefault("SpigotLink", "&7https://www.spigotmc.org/resources/morphredeem-mcmmo-credits-1-14.67435/");
 		cfg.addDefault("UpdateMessage", "&7New plugin version found. New Version&8: &b%VERSION% &8(&7%LINK%&8)");
