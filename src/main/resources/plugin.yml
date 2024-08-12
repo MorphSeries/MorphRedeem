@@ -5,6 +5,7 @@ author: Morphie
 api-version: 1.13
 depend: [mcMMO]
 softdepend: [PlaceholderAPI]
+folia-supported: true
 commands:
    morphredeem:
     description: Main command for the MorphRedeem plugin!

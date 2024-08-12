@@ -28,7 +28,7 @@ public class CommandsTabCompleter implements TabCompleter {
 		if (args.length == 1) {
 			return StringUtil.copyPartialMatches(args[0], Arrays.asList(
 					"help", "credits", "send", "add", "remove", "reset", "set", "reload", "acrobatics", "archery", "alchemy", "archery",
-					"axes", "crossbows", "excavation", "fishing", "herbalism", "mining", "repair", "swords", "taming", "tridents",
+					"axes", "crossbows", "excavation", "fishing", "herbalism", "mace", "mining", "repair", "swords", "taming", "tridents",
 					"unarmed", "woodcutting"), new ArrayList<>());
 
 		} else if (args.length == 2) {
