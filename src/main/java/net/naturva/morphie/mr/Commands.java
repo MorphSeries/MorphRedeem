@@ -31,6 +31,12 @@ public class Commands implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("morphredeem") || cmd.getName().equalsIgnoreCase("redeem") || cmd.getName().equalsIgnoreCase("mr")) {
 			if (args.length == 0) {
+
+				if(!(sender instanceof Player)){
+					sender.sendMessage(ChatColor.RED + "This command can only be used by the player. Did you mean " + ChatColor.AQUA + "/mr help?");
+					return true;
+				}
+
 				Player player = (Player)sender;
 				if (!player.isSleeping()) {
 					if (sender.hasPermission("morphredeem.redeem")) {

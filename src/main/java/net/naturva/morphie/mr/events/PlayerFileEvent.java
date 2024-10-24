@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.UUID;
 import java.util.logging.Level;
 
+import net.naturva.morphie.mr.util.Database.SQLiteConnection;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -30,9 +31,11 @@ public class PlayerFileEvent implements Listener {
   		Player player = e.getPlayer();
   		UUID uuid = player.getUniqueId();
   		
-  		if (this.plugin.getConfig().getString("StorageMethod").equals("MySQL")) {
+  		if (this.plugin.getConfig().getString("StorageMethod").equalsIgnoreCase("MySQL")) {
   			new MySQLConnection(this.plugin).createPlayer(uuid, player);
-  		} else if(!this.plugin.getConfig().getString("StorageMethod").equals("Redis")) {
+  		} else if (this.plugin.getConfig().getString("StorageMethod").equalsIgnoreCase("SQLite")) {
+			new SQLiteConnection(this.plugin).createPlayer(uuid, player);
+		} else if(!this.plugin.getConfig().getString("StorageMethod").equalsIgnoreCase("Redis")) {
   	  		new BukkitRunnable() {
   	  			public void run() {
   	  				File file = getData(uuid);

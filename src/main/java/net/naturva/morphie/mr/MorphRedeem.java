@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 import net.naturva.morphie.mr.events.JoinEvent;
 import net.naturva.morphie.mr.util.Database.RedisConnection;
+import net.naturva.morphie.mr.util.Database.SQLiteConnection;
 import net.naturva.morphie.mr.util.StringUtils;
 import net.naturva.morphie.mr.util.UpdateChecker;
 import org.bukkit.Bukkit;
@@ -62,13 +63,17 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 	    getServer().getConsoleSender().sendMessage(new StringUtils().addColor("&bVersion&8: &a" + this.Version));
 		createConfig();
 		loadConfigManager();
-		if (this.getConfig().getString("StorageMethod").equals("MySQL")) {
+		if (this.getConfig().getString("StorageMethod").equalsIgnoreCase("MySQL")) {
 			new MySQLConnection(this).mysqlSetup();
 			new MySQLConnection(this).checkStructure();
 			getServer().getConsoleSender().sendMessage(new StringUtils().addColor("&bStorage Type&8: &aMySQL"));
-		} else if(this.getConfig().getString("StorageMethod").equals("Redis")) {
+		} else if(this.getConfig().getString("StorageMethod").equalsIgnoreCase("Redis")) {
 			new RedisConnection(this).auth();
 			getServer().getConsoleSender().sendMessage(new StringUtils().addColor("&bStorage Type&8: &aRedis"));
+		} else if (this.getConfig().getString("StorageMethod").equalsIgnoreCase("SQLite")) {
+			new SQLiteConnection(this).sqliteSetup();
+			new SQLiteConnection(this).checkStructure();
+			getServer().getConsoleSender().sendMessage(new StringUtils().addColor("&bStorage Type&8: &aSQLite"));
 		} else {
 			getServer().getConsoleSender().sendMessage(new StringUtils().addColor("&bStorage Type&8: &aYML"));
 		}
