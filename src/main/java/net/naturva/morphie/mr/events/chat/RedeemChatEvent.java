@@ -3,6 +3,7 @@ package net.naturva.morphie.mr.events.chat;
 import java.util.UUID;
 
 import net.naturva.morphie.mr.util.StringUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -75,18 +76,18 @@ public class RedeemChatEvent implements Listener {
 	          }
 	          player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + message));
 	        } else {
-	        	new DataManager(plugin).updateData(uuid, +amountToAdd, "Credits_Spent", "add");
-	        	new DataManager(plugin).updateData(uuid, -amountToAdd, "Credits", "remove");
-	        	
-	        	ExperienceAPI.addLevel(player, skill, amountToAdd);
-	        	String message = this.plugin.getMessage("CreditAssignmentSuccess");
-	        	if (message.contains("%SKILL%")) {
-	        		message = message.replaceAll("%SKILL%", skill);
-	        	}
-	        	if (message.contains("%CREDITS%")) {
-	        		message = message.replaceAll("%CREDITS%", "" + amountToAdd);
-	        	}
-	        	player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("Prefix") + message));
+				new DataManager(plugin).updateData(uuid, +amountToAdd, "Credits_Spent", "add");
+				new DataManager(plugin).updateData(uuid, -amountToAdd, "Credits", "remove");
+
+				ExperienceAPI.addLevel(player, skill, amountToAdd);
+				String message = this.plugin.getMessage("CreditAssignmentSuccess");
+				if (message.contains("%SKILL%")) {
+					message = message.replaceAll("%SKILL%", skill);
+				}
+				if (message.contains("%CREDITS%")) {
+					message = message.replaceAll("%CREDITS%", "" + amountToAdd);
+				}
+				player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("Prefix") + message));
 	        }
 		}
 	}
