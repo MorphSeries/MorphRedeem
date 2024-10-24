@@ -60,11 +60,16 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Alchemy") != 2147483647) {
 	    		Alchemy.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Alchemy"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Alchemy")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Alchemy"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Alchemy"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Alchemy")));
+
 	    	} else {
 	    		Alchemy.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Alchemy"))
-		    			.replace("%LEVELCAP%", new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Alchemy"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Alchemy")));
 	    	}
 		}
 	
@@ -79,11 +84,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Archery") != 2147483647) {
 	    		Archery.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Archery"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Archery")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Archery"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Archery"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Archery")));
 	    	} else {
 	    		Archery.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Archery"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Archery"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Archery")));
 	    	}
 		}
 	    
@@ -98,11 +107,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Axes") != 2147483647) {
 	    		Axes.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Axes"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Axes")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Axes"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Axes"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Axes")));
 	    	} else {
 	    		Axes.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Axes"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Axes"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Axes")));
 	    	}
 		}
 	
@@ -117,11 +130,15 @@ public class RedeemMenu implements Listener {
 			if (new McMMOMethods().getSkillCap("Crossbows") != 2147483647) {
 				Crossbows.add(new StringUtils().addColor(s)
 						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Crossbows"))
-						.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Crossbows")));
+						.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Crossbows"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Crossbows"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Crossbows")));
 			} else {
 				Crossbows.add(new StringUtils().addColor(s)
 						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Crossbows"))
-						.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+						.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Crossbows"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Crossbows")));
 			}
 		}
 
@@ -136,11 +153,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Excavation") != 2147483647) {
 	    		Excavation.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Excavation"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Excavation")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Excavation"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Excavation"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Excavation")));
 	    	} else {
 	    		Excavation.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Excavation"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Excavation"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Excavation")));
 	    	}
 		}
 	
@@ -155,11 +176,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Fishing") != 2147483647) {
 	    		Fishing.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Fishing"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Fishing")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Fishing"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Fishing"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Fishing")));
 	    	} else {
 	    		Fishing.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Fishing"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Fishing"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Fishing")));
 	    	}
 		}
 	
@@ -174,11 +199,15 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Herbalism") != 2147483647) {
 	    		Herbalism.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Herbalism"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Herbalism")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Herbalism"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Herbalism"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Herbalism")));
 	    	} else {
 	    		Herbalism.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Herbalism"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Herbalism"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Herbalism")));
 	    	}
 		}
 	
@@ -187,24 +216,51 @@ public class RedeemMenu implements Listener {
 	    } else {
 	    	Redeem.setItem(21, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Herbalism.ItemName"), 1, this.plugin.getMessage("Menu.Herbalism.Name"), Herbalism, false));
 	    }
-	    
+
+		ArrayList<String> Maces = new ArrayList();
+		for (String s : plugin.getMessageList("Menu.Maces.Lore")) {
+			if (new McMMOMethods().getSkillCap("Maces") != 2147483647) {
+				Maces.add(new StringUtils().addColor(s)
+						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Maces"))
+						.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Maces"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Maces"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Maces")));
+			} else {
+				Maces.add(new StringUtils().addColor(s)
+						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Maces"))
+						.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Maces"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Maces")));
+			}
+		}
+
+		if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Maces")) {
+			Redeem.setItem(22, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Maces.Name"), Maces, false));
+		} else {
+			Redeem.setItem(22, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Maces.ItemName"), 1, this.plugin.getMessage("Menu.Maces.Name"), Maces, false));
+		}
+
 		ArrayList<String> Mining = new ArrayList();
 	    for (String s : plugin.getMessageList("Menu.Mining.Lore")) {
 	    	if (new McMMOMethods().getSkillCap("Mining") != 2147483647) {
 	    		Mining.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Mining"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Mining")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Mining"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Mining"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Mining")));
 	    	} else {
 	    		Mining.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Mining"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Mining"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Mining")));
 	    	}
 		}
 	
 	    if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Mining")) {
-	    	Redeem.setItem(22, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Mining.Name"), Mining, false));
+	    	Redeem.setItem(23, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Mining.Name"), Mining, false));
 	    } else {
-	    	Redeem.setItem(22, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Mining.ItemName"), 1, this.plugin.getMessage("Menu.Mining.Name"), Mining, false));
+	    	Redeem.setItem(23, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Mining.ItemName"), 1, this.plugin.getMessage("Menu.Mining.Name"), Mining, false));
 	    }
 	    
 		ArrayList<String> Repair = new ArrayList();
@@ -212,18 +268,22 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Repair") != 2147483647) {
 	    		Repair.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Repair"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Repair")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Repair"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Repair"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Repair")));
 	    	} else {
 	    		Repair.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Repair"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Repair"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Repair")));
 	    	}
 		}
 	
 	    if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Repair")) {
-	    	Redeem.setItem(23, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Repair.Name"), Repair, false));
+	    	Redeem.setItem(28, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Repair.Name"), Repair, false));
 	    } else {
-	    	Redeem.setItem(23, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Repair.ItemName"), 1, this.plugin.getMessage("Menu.Repair.Name"), Repair, false));
+	    	Redeem.setItem(28, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Repair.ItemName"), 1, this.plugin.getMessage("Menu.Repair.Name"), Repair, false));
 	    }
 	    
 		ArrayList<String> Swords = new ArrayList();
@@ -231,18 +291,22 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Swords") != 2147483647) {
 	    		Swords.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Swords"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Swords")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Swords"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Swords"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Swords")));
 	    	} else {
 	    		Swords.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Swords"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Swords"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Swords")));
 	    	}
 		}
 	
 	    if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Swords")) {
-	    	Redeem.setItem(28, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Swords.Name"), Swords, false));
+	    	Redeem.setItem(29, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Swords.Name"), Swords, false));
 	    } else {
-	    	Redeem.setItem(28, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Swords.ItemName"), 1, this.plugin.getMessage("Menu.Swords.Name"), Swords, false));
+	    	Redeem.setItem(29, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Swords.ItemName"), 1, this.plugin.getMessage("Menu.Swords.Name"), Swords, false));
 	    }
 	    
 		ArrayList<String> Taming = new ArrayList();
@@ -250,18 +314,22 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Taming") != 2147483647) {
 	    		Taming.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Taming"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Taming")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Taming"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Taming"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Taming")));
 	    	} else {
 	    		Taming.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Taming"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Taming"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Taming")));
 	    	}
 		}
 	
 	    if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Taming")) {
-	    	Redeem.setItem(29, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Taming.Name"), Taming, false));
+	    	Redeem.setItem(30, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Taming.Name"), Taming, false));
 	    } else {
-	    	Redeem.setItem(29, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Taming.ItemName"), 1, this.plugin.getMessage("Menu.Taming.Name"), Taming, false));
+	    	Redeem.setItem(30, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Taming.ItemName"), 1, this.plugin.getMessage("Menu.Taming.Name"), Taming, false));
 	    }
 
 		ArrayList<String> Tridents = new ArrayList();
@@ -269,18 +337,22 @@ public class RedeemMenu implements Listener {
 			if (new McMMOMethods().getSkillCap("Tridents") != 2147483647) {
 				Tridents.add(new StringUtils().addColor(s)
 						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Tridents"))
-						.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Tridents")));
+						.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Tridents"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Tridents"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Tridents")));
 			} else {
 				Tridents.add(new StringUtils().addColor(s)
 						.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Tridents"))
-						.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+						.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Tridents"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Tridents")));
 			}
 		}
 
 		if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Tridents")) {
-			Redeem.setItem(30, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Tridents.Name"), Tridents, false));
+			Redeem.setItem(31, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Tridents.Name"), Tridents, false));
 		} else {
-			Redeem.setItem(30, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Tridents.ItemName"), 1, this.plugin.getMessage("Menu.Tridents.Name"), Tridents, false));
+			Redeem.setItem(31, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Tridents.ItemName"), 1, this.plugin.getMessage("Menu.Tridents.Name"), Tridents, false));
 		}
 	    
 		ArrayList<String> Unarmed = new ArrayList();
@@ -288,18 +360,22 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Unarmed") != 2147483647) {
 	    		Unarmed.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Unarmed"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Unarmed")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Unarmed"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Unarmed"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Unarmed")));
 	    	} else {
 	    		Unarmed.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Unarmed"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Unarmed"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Unarmed")));
 	    	}
 		}
 	
 	    if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Unarmed")) {
-	    	Redeem.setItem(31, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Unarmed.Name"), Unarmed, false));
+	    	Redeem.setItem(32, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Unarmed.Name"), Unarmed, false));
 	    } else {
-	    	Redeem.setItem(31, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Unarmed.ItemName"), 1, this.plugin.getMessage("Menu.Unarmed.Name"), Unarmed, false));
+	    	Redeem.setItem(32, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Unarmed.ItemName"), 1, this.plugin.getMessage("Menu.Unarmed.Name"), Unarmed, false));
 	    }
 	    
 		ArrayList<String> Woodcutting = new ArrayList();
@@ -307,18 +383,22 @@ public class RedeemMenu implements Listener {
 	    	if (new McMMOMethods().getSkillCap("Woodcutting") != 2147483647) {
 	    		Woodcutting.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Woodcutting"))
-		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Woodcutting")));
+		    			.replace("%LEVELCAP%", "" + + new McMMOMethods().getSkillCap("Woodcutting"))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Woodcutting"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Woodcutting")));
 	    	} else {
 	    		Woodcutting.add(new StringUtils().addColor(s)
 		    			.replace("%SKILLLEVEL%", "" + new McMMOMethods().getSkillLevel(player, "Woodcutting"))
-		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap"))));
+		    			.replace("%LEVELCAP%", "" + new StringUtils().addColor(plugin.getMessage("NoSkillCap")))
+						.replace("%SKILLXP%", "" + new McMMOMethods().getSkillXP(player, "Woodcutting"))
+						.replace("%SKILLXP_NEEDED%", "" + new McMMOMethods().getSkillXPNeeded(player, "Woodcutting")));
 	    	}
 		}
 	
 	    if (skillDisable == true && replaceItem == true && this.plugin.getConfig().getStringList("Settings.DisabledSkills.SkillsToDisable").contains("Woodcutting")) {
-	    	Redeem.setItem(32, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Woodcutting.Name"), Woodcutting, false));
+	    	Redeem.setItem(39, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.DisabledSkills.ReplaceGUIItem.ItemName"), 1, this.plugin.getMessage("Menu.Woodcutting.Name"), Woodcutting, false));
 	    } else {
-	    	Redeem.setItem(32, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Woodcutting.ItemName"), 1, this.plugin.getMessage("Menu.Woodcutting.Name"), Woodcutting, false));
+	    	Redeem.setItem(39, this.plugin.createInventoryItem(this.plugin.getConfig().getString("Settings.GUI.Woodcutting.ItemName"), 1, this.plugin.getMessage("Menu.Woodcutting.Name"), Woodcutting, false));
 	    }
 	    
 		ArrayList<String> mcMMOCredits = new ArrayList();
@@ -353,22 +433,37 @@ public class RedeemMenu implements Listener {
 	    } else {
 	    	Redeem.setItem(34, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 	    }
-		
-		Redeem.setItem(0, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(6, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(8, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(9, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(15, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(17, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(18, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(24, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(26, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(27, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(33, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(35, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(36, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(42, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
-		Redeem.setItem(44, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+
+		Redeem.setItem(0, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(0, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(6, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(6, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(8, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(8, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(9, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(9, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(15, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(15, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(17, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(17, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(18, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(18, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(24, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(24, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(26, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(26, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(27, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(27, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(33, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(33, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(35, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(35, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(36, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(36, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(42, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(42, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
+		Redeem.setItem(44, this.plugin.createInventoryItem("BLUE_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(44, this.plugin.createInventoryGlassItem("LEGACY_STAINED_GLASS_PANE", glassInt, 1, " ", null, false));
 		
 		Redeem.setItem(1, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 		Redeem.setItem(2, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
@@ -378,7 +473,7 @@ public class RedeemMenu implements Listener {
 		Redeem.setItem(7, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 		Redeem.setItem(37, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 		Redeem.setItem(38, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
-		Redeem.setItem(39, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
+//		Redeem.setItem(39, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 		Redeem.setItem(40, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 		Redeem.setItem(41, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
 		Redeem.setItem(43, this.plugin.createInventoryItem("BLACK_STAINED_GLASS_PANE", 1, " ", null, false));
