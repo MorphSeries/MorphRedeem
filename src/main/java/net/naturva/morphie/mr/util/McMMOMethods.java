@@ -1,6 +1,8 @@
 package net.naturva.morphie.mr.util;
 
 import com.gmail.nossr50.api.ExperienceAPI;
+import com.gmail.nossr50.api.SkillAPI;
+import com.gmail.nossr50.datatypes.skills.PrimarySkillType;
 import org.bukkit.entity.Player;
 
 public class McMMOMethods {
@@ -14,9 +16,9 @@ public class McMMOMethods {
 	}
 
 	public int getSkillLevel(Player player, String skill) {
-		try {
-            return ExperienceAPI.getLevel(player, skill);
-		} catch (NullPointerException e1) {
+		if (SkillAPI.getSkills().contains(skill.toUpperCase())) {
+            return ExperienceAPI.getLevel(player, PrimarySkillType.valueOf(skill.toUpperCase()));
+		} else {
 			return 0;
 		}
 	}
@@ -37,13 +39,8 @@ public class McMMOMethods {
 		}
 	}
 
-	public boolean doesSkillExist(Player player, String skill) {
-		try {
-			ExperienceAPI.getLevel(player, skill);
-			return true;
-		} catch (NullPointerException e1) {
-			return false;
-		}
+	public boolean doesSkillExist(String skill) {
+		return ExperienceAPI.isValidSkillType(skill);
 	}
 	
 
