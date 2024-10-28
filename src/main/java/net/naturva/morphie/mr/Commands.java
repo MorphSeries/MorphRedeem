@@ -445,7 +445,7 @@ public class Commands implements CommandExecutor {
 			        }
 					int amount2 = Integer.parseInt(args[1]);
 					int credits = Integer.parseInt(new DataManager(plugin).getData(uuid, "Credits"));
-					if (new McMMOMethods().doesSkillExist(player, skill) == false) {
+					if (!new McMMOMethods().doesSkillExist(skill)) {
 						sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidSkill")));
 						return true;
 					}
