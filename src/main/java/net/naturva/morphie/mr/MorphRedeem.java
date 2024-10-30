@@ -86,15 +86,17 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 	    getServer().getConsoleSender().sendMessage(new StringUtils().addColor("&bPlugin Status&8: &aEnabled"));
 	    getServer().getConsoleSender().sendMessage(new StringUtils().addColor("&8[----------[&3MorphRedeem&8]----------]"));
 
-		UpdateChecker updater = new UpdateChecker(this);
-		try {
-			if (updater.checkForUpdates()) {
-				if (this.getConfig().getBoolean("Settings.UpdateChecker")) {
-					Bukkit.getConsoleSender().sendMessage(new StringUtils().addColor(this.getMessage("Prefix") + this.getMessage("UpdateMessage").replace("%VERSION%", new UpdateChecker(this).getLatestVersion()).replace("%LINK%", new UpdateChecker(this).getResourceURL())));
+		if (this.getConfig().getBoolean("Settings.UpdateChecker")) {
+			Bukkit.getScheduler().runTaskAsynchronously(this, ()->{
+				UpdateChecker updater = new UpdateChecker(this);
+				try {
+					if (updater.checkForUpdates()) {
+						Bukkit.getConsoleSender().sendMessage(new StringUtils().addColor(this.getMessage("Prefix") + this.getMessage("UpdateMessage").replace("%VERSION%", new UpdateChecker(this).getLatestVersion()).replace("%LINK%", new UpdateChecker(this).getResourceURL())));
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+			});
 		}
 	}
 	

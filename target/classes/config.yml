@@ -76,7 +76,7 @@ Settings:
 
 #============================================================================================================================|
 
-# Storage method, can be MySQL, Redis, or YML
+# Storage method, can be MySQL, Redis, SQLite, or YML
 StorageMethod: "YML"
 
 # Requires 'StorageMethod' to be MySQL
