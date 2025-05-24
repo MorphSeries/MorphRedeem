@@ -19,16 +19,14 @@ public class JoinEvent implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
         UpdateChecker updater = new UpdateChecker(plugin);
-        try {
-            if (updater.checkForUpdates()) {
-                if (this.plugin.getConfig().getBoolean("Settings.UpdateChecker")) {
-                    if (player.hasPermission("morphredeem.admin") || player.hasPermission("morphredeem.updateChecker")) {
-                        player.sendMessage(new StringUtils().addColor(plugin.getMessage("Prefix") + plugin.getMessage("UpdateMessage").replace("%VERSION%", new UpdateChecker(plugin).getLatestVersion()).replace("%LINK%", new UpdateChecker(plugin).getResourceURL())));
-                    }
+
+        if (updater.checkForUpdates()) {
+            if (this.plugin.getConfig().getBoolean("Settings.UpdateChecker")) {
+                if (player.hasPermission("morphredeem.admin") || player.hasPermission("morphredeem.updateChecker")) {
+                    // Use the already fetched latest version from the updater instance
+                    player.sendMessage(new StringUtils().addColor(plugin.getMessage("Prefix") + plugin.getMessage("UpdateMessage").replace("%VERSION%", updater.getLatestVersion()).replace("%LINK%", updater.getResourceURL())));
                 }
             }
-        } catch (Exception e1) {
-        e1.printStackTrace();
         }
     }
 }
