@@ -1,4 +1,4 @@
-package net.naturva.morphie.mr.util;
+package dev.morphie.mr.util;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

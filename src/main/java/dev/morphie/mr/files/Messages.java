@@ -1,4 +1,4 @@
-package net.naturva.morphie.mr.files;
+package dev.morphie.mr.files;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Listener;
 
-import net.naturva.morphie.mr.MorphRedeem;
+import dev.morphie.mr.MorphRedeem;
 
 
 public class Messages implements Listener {

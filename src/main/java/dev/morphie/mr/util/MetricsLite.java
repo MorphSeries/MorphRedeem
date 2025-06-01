@@ -1,4 +1,4 @@
-package net.naturva.morphie.mr.util;
+package dev.morphie.mr.util;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;

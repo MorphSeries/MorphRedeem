@@ -1,9 +1,9 @@
-package net.naturva.morphie.mr;
+package dev.morphie.mr;
 
 import java.io.File;
 import java.util.UUID;
 
-import net.naturva.morphie.mr.util.StringUtils;
+import dev.morphie.mr.util.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -15,10 +15,9 @@ import org.bukkit.plugin.Plugin;
 import com.gmail.nossr50.api.ExperienceAPI;
 import com.gmail.nossr50.api.exceptions.McMMOPlayerNotFoundException;
 
-import net.md_5.bungee.api.ChatColor;
-import net.naturva.morphie.mr.menus.RedeemMenu;
-import net.naturva.morphie.mr.util.McMMOMethods;
-import net.naturva.morphie.mr.util.DataManager;
+import dev.morphie.mr.menus.RedeemMenu;
+import dev.morphie.mr.util.McMMOMethods;
+import dev.morphie.mr.util.DataManager;
 
 public class Commands implements CommandExecutor {
 	

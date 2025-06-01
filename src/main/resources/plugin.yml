@@ -1,6 +1,6 @@
 name: MorphRedeem
 version: ${project.version}
-main: net.naturva.morphie.mr.MorphRedeem
+main: dev.morphie.mr.MorphRedeem
 author: Morphie
 api-version: 1.13
 depend: [mcMMO]

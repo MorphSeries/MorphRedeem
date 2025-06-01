@@ -1,4 +1,4 @@
-package net.naturva.morphie.mr.util;
+package dev.morphie.mr.util;
 
 import com.gmail.nossr50.api.ExperienceAPI;
 import com.gmail.nossr50.api.SkillAPI;

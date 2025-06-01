@@ -1,9 +1,9 @@
-package net.naturva.morphie.mr.events.chat;
+package dev.morphie.mr.events.chat;
 
 import java.util.UUID;
 
-import net.naturva.morphie.mr.util.McMMOMethods;
-import net.naturva.morphie.mr.util.StringUtils;
+import dev.morphie.mr.util.McMMOMethods;
+import dev.morphie.mr.util.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,9 +14,8 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import com.gmail.nossr50.api.ExperienceAPI;
 
 import net.md_5.bungee.api.ChatColor;
-import net.naturva.morphie.mr.MorphRedeem;
-import net.naturva.morphie.mr.util.DataManager;
-import org.bukkit.scheduler.BukkitTask;
+import dev.morphie.mr.MorphRedeem;
+import dev.morphie.mr.util.DataManager;
 
 public class RedeemChatEvent implements Listener {
 
@@ -68,7 +67,7 @@ public class RedeemChatEvent implements Listener {
 			if (cap > 0) {
 				if (plugin.getConfig().getBoolean("Settings.mcMMOSkillXP.Enabled")) {
 					int xp = plugin.getConfig().getInt("Settings.mcMMOSkillXP.XPpercredit");
-					if (new McMMOMethods().getSkillXP(player, skill) + amountToAdd*xp >  ExperienceAPI.getXPToNextLevel(player, skill)) {
+					if (new McMMOMethods().getSkillXP(player, skill) + amountToAdd*xp > ExperienceAPI.getXPToNextLevel(player, skill)) {
 						String message = this.plugin.getMessage("SkillXPCapReached");
 						if (message.contains("%SKILL%")) {
 							message = message.replaceAll("%SKILL%", skill);

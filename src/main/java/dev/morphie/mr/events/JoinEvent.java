@@ -1,8 +1,8 @@
-package net.naturva.morphie.mr.events;
+package dev.morphie.mr.events;
 
-import net.naturva.morphie.mr.MorphRedeem;
-import net.naturva.morphie.mr.util.StringUtils;
-import net.naturva.morphie.mr.util.UpdateChecker;
+import dev.morphie.mr.MorphRedeem;
+import dev.morphie.mr.util.StringUtils;
+import dev.morphie.mr.util.UpdateChecker;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

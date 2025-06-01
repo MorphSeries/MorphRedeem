@@ -1,4 +1,4 @@
-package net.naturva.morphie.mr.util.Database;
+package dev.morphie.mr.util.Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ import java.util.UUID;
 
 import org.bukkit.entity.Player;
 
-import net.naturva.morphie.mr.MorphRedeem;
+import dev.morphie.mr.MorphRedeem;
 
 public class MySQLConnection {
 	

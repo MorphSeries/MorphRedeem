@@ -1,19 +1,17 @@
-package net.naturva.morphie.mr.menus;
+package dev.morphie.mr.menus;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-import com.gmail.nossr50.util.player.UserManager;
-import net.naturva.morphie.mr.util.StringUtils;
+import dev.morphie.mr.util.StringUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 
-import net.naturva.morphie.mr.MorphRedeem;
-import net.naturva.morphie.mr.util.McMMOMethods;
-import net.naturva.morphie.mr.util.DataManager;
+import dev.morphie.mr.MorphRedeem;
+import dev.morphie.mr.util.McMMOMethods;
+import dev.morphie.mr.util.DataManager;
 
 
 

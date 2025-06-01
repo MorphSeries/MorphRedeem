@@ -1,4 +1,4 @@
-package net.naturva.morphie.mr.files;
+package dev.morphie.mr.files;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,10 +6,9 @@ import java.util.UUID;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import net.naturva.morphie.mr.MorphRedeem;
+import dev.morphie.mr.MorphRedeem;
 
 
 public class PlayerFileMethods {

@@ -1,10 +1,9 @@
-package net.naturva.morphie.mr.events.menus;
+package dev.morphie.mr.events.menus;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-import net.naturva.morphie.mr.util.StringUtils;
-import org.bukkit.ChatColor;
+import dev.morphie.mr.util.StringUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,8 +11,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import net.naturva.morphie.mr.MorphRedeem;
-import net.naturva.morphie.mr.util.DataManager;
+import dev.morphie.mr.MorphRedeem;
+import dev.morphie.mr.util.DataManager;
 
 public class RedeemMenuEvent implements Listener {
 

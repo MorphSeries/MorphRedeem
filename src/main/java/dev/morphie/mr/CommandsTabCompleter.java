@@ -1,4 +1,4 @@
-package net.naturva.morphie.mr;
+package dev.morphie.mr;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

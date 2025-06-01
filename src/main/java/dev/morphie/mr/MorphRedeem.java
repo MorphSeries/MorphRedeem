@@ -1,4 +1,4 @@
-package net.naturva.morphie.mr;
+package dev.morphie.mr;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
-import net.naturva.morphie.mr.events.JoinEvent;
-import net.naturva.morphie.mr.util.Database.RedisConnection;
-import net.naturva.morphie.mr.util.StringUtils;
-import net.naturva.morphie.mr.util.UpdateChecker;
+import dev.morphie.mr.events.JoinEvent;
+import dev.morphie.mr.util.Database.RedisConnection;
+import dev.morphie.mr.util.StringUtils;
+import dev.morphie.mr.util.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -20,14 +20,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.md_5.bungee.api.ChatColor;
-import net.naturva.morphie.mr.events.PlayerFileEvent;
-import net.naturva.morphie.mr.events.chat.RedeemChatEvent;
-import net.naturva.morphie.mr.events.menus.RedeemMenuEvent;
-import net.naturva.morphie.mr.files.Messages;
-import net.naturva.morphie.mr.util.MetricsLite;
-import net.naturva.morphie.mr.util.MorphRedeemExpansion;
-import net.naturva.morphie.mr.util.Database.MySQLConnection;
+import dev.morphie.mr.events.PlayerFileEvent;
+import dev.morphie.mr.events.chat.RedeemChatEvent;
+import dev.morphie.mr.events.menus.RedeemMenuEvent;
+import dev.morphie.mr.files.Messages;
+import dev.morphie.mr.util.MetricsLite;
+import dev.morphie.mr.util.MorphRedeemExpansion;
+import dev.morphie.mr.util.Database.MySQLConnection;
 
 public class MorphRedeem extends JavaPlugin implements Listener {
 	

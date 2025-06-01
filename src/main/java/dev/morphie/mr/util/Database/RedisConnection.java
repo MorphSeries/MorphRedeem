@@ -1,6 +1,6 @@
-package net.naturva.morphie.mr.util.Database;
+package dev.morphie.mr.util.Database;
 
-import net.naturva.morphie.mr.MorphRedeem;
+import dev.morphie.mr.MorphRedeem;
 import redis.clients.jedis.Jedis;
 
 import java.util.UUID;
