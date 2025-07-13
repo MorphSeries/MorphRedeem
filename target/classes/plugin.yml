@@ -1,6 +1,6 @@
 name: MorphRedeem
-version: 1.3.0.2
-main: net.naturva.morphie.mr.MorphRedeem
+version: 1.3.0
+main: dev.morphie.mr.MorphRedeem
 author: Morphie
 api-version: 1.13
 depend: [mcMMO]

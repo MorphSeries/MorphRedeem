@@ -3,6 +3,7 @@ package dev.morphie.mr;
 import java.io.File;
 import java.util.UUID;
 
+import dev.morphie.mr.util.CreditConversion;
 import dev.morphie.mr.util.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -456,35 +457,13 @@ public class Commands implements CommandExecutor {
 		            	sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidCredits")));
 		            	return true; 
 		            }
-			        int cap = ExperienceAPI.getLevelCap(skill);
-			        if (ExperienceAPI.getLevel(player, skill) + amount2 > cap) {
-			        	String message = this.plugin.getMessage("SkillCapReached");
-			        	if (message.contains("%SKILL%")) {
-			        		message = message.replaceAll("%SKILL%", skill);
-			          }
-			          if (message.contains("%CAP%")) {
-			            message = message.replaceAll("%CAP%", "" + cap);
-			          }
-			          if (message.contains("%LEVEL%")) {
-			        	  message = message.replaceAll("%LEVEL%", "" + (ExperienceAPI.getLevel(player, skill) + amount2));
-			          }
-			          player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + message));
-			          return true;
-			        } else {	
-			        	new DataManager(plugin).updateData(uuid, +amount2, "Credits_Spent", "add");
-			        	new DataManager(plugin).updateData(uuid, -amount2, "Credits", "remove");
-		          
-			        	ExperienceAPI.addLevel(player, skill, amount2);
-			        	String message = this.plugin.getMessage("CreditAssignmentSuccess");
-			        	if (message.contains("%SKILL%")) {
-			        		message = message.replaceAll("%SKILL%", skill);
-			        	}
-			        	if (message.contains("%CREDITS%")) {
-			        		message = message.replaceAll("%CREDITS%", "" + amount2);
-			        	}
-			        	player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("Prefix") + message));
-			        	return true;
-			        }
+					if (plugin.getConfig().getBoolean("Settings.mcMMOSkillXP.Enabled")) {
+						new CreditConversion(plugin).ApplyCredit("EXPERIENCE", player, amount2, skill);
+						return true;
+					} else {
+						new CreditConversion(plugin).ApplyCredit("LEVEL", player, amount2, skill);
+						return true;
+					}
 				} else {
 					sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("NoPermsMessage")));
 					return true;

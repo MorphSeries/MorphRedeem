@@ -2,6 +2,7 @@ package dev.morphie.mr.events.chat;
 
 import java.util.UUID;
 
+import dev.morphie.mr.util.CreditConversion;
 import dev.morphie.mr.util.McMMOMethods;
 import dev.morphie.mr.util.StringUtils;
 import org.bukkit.Bukkit;
@@ -63,95 +64,11 @@ public class RedeemChatEvent implements Listener {
 	        	player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("Prefix") + this.plugin.getMessage("CreditAssignmentCanceled")));
 	        	return;
 	        }
-	        int cap = ExperienceAPI.getLevelCap(skill);
-			if (cap > 0) {
-				if (plugin.getConfig().getBoolean("Settings.mcMMOSkillXP.Enabled")) {
-					int xp = plugin.getConfig().getInt("Settings.mcMMOSkillXP.XPpercredit");
-					if (new McMMOMethods().getSkillXP(player, skill) + amountToAdd*xp > ExperienceAPI.getXPToNextLevel(player, skill)) {
-						String message = this.plugin.getMessage("SkillXPCapReached");
-						if (message.contains("%SKILL%")) {
-							message = message.replaceAll("%SKILL%", skill);
-						}
-						if (message.contains("%SKILLXP_NEEDED%")) {
-							message = message.replaceAll("%SKILLXP_NEEDED%", "" + (ExperienceAPI.getXPToNextLevel(player, skill)-new McMMOMethods().getSkillXP(player, skill)));
-						}
-						if (message.contains("%CREDITXP%")) {
-							message = message.replaceAll("%CREDITXP%", "" + amountToAdd*xp);
-						}
-						player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + message));
-					} else {
-						new DataManager(plugin).updateData(uuid, +amountToAdd, "Credits_Spent", "add");
-						new DataManager(plugin).updateData(uuid, -amountToAdd, "Credits", "remove");
-						if (plugin.getConfig().getBoolean("Settings.mcMMOSkillXP.Enabled")) {
-							Bukkit.getScheduler().runTask(plugin, () -> {
-								new McMMOMethods().applyXP(player, skill, amountToAdd*xp);
-							});
-						} else {
-							ExperienceAPI.addLevel(player, skill, amountToAdd);
-						}
-						String message = this.plugin.getMessage("CreditAssignmentSuccess");
-						if (message.contains("%SKILL%")) {
-							message = message.replaceAll("%SKILL%", skill);
-						}
-						if (message.contains("%CREDITS%")) {
-							message = message.replaceAll("%CREDITS%", "" + amountToAdd);
-						}
-						player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("Prefix") + message));
-					}
-				} else {
-					if (ExperienceAPI.getLevel(player, skill) + amountToAdd > cap) {
-						String message = this.plugin.getMessage("SkillCapReached");
-						if (message.contains("%SKILL%")) {
-							message = message.replaceAll("%SKILL%", skill);
-						}
-						if (message.contains("%CAP%")) {
-							message = message.replaceAll("%CAP%", "" + cap);
-						}
-						if (message.contains("%LEVEL%")) {
-							message = message.replaceAll("%LEVEL%", "" + (ExperienceAPI.getLevel(player, skill) + amountToAdd));
-						}
-						player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + message));
-					} else {
-						new DataManager(plugin).updateData(uuid, +amountToAdd, "Credits_Spent", "add");
-						new DataManager(plugin).updateData(uuid, -amountToAdd, "Credits", "remove");
-						if (plugin.getConfig().getBoolean("Settings.mcMMOSkillXP.Enabled")) {
-							int xp = plugin.getConfig().getInt("Settings.mcMMOSkillXP.XPpercredit");
-							Bukkit.getScheduler().runTask(plugin, () -> {
-								new McMMOMethods().applyXP(player, skill, amountToAdd*xp);
-							});
-						} else {
-							ExperienceAPI.addLevel(player, skill, amountToAdd);
-						}
-						String message = this.plugin.getMessage("CreditAssignmentSuccess");
-						if (message.contains("%SKILL%")) {
-							message = message.replaceAll("%SKILL%", skill);
-						}
-						if (message.contains("%CREDITS%")) {
-							message = message.replaceAll("%CREDITS%", "" + amountToAdd);
-						}
-						player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("Prefix") + message));
-					}
-				}
-			} else {
-	        	new DataManager(plugin).updateData(uuid, +amountToAdd, "Credits_Spent", "add");
-	        	new DataManager(plugin).updateData(uuid, -amountToAdd, "Credits", "remove");
-	        	if (plugin.getConfig().getBoolean("Settings.mcMMOSkillXP.Enabled")) {
-					int xp = plugin.getConfig().getInt("Settings.mcMMOSkillXP.XPpercredit");
-					Bukkit.getScheduler().runTask(plugin, () -> {
-						new McMMOMethods().applyXP(player, skill, amountToAdd*xp);
-					});
-				} else {
-					ExperienceAPI.addLevel(player, skill, amountToAdd);
-				}
-	        	String message = this.plugin.getMessage("CreditAssignmentSuccess");
-	        	if (message.contains("%SKILL%")) {
-	        		message = message.replaceAll("%SKILL%", skill);
-	        	}
-	        	if (message.contains("%CREDITS%")) {
-	        		message = message.replaceAll("%CREDITS%", "" + amountToAdd);
-	        	}
-	        	player.sendMessage(new StringUtils().addColor(this.plugin.getMessage("Prefix") + message));
-	        }
+			if (plugin.getConfig().getBoolean("Settings.mcMMOSkillXP.Enabled")) {
+				new CreditConversion(plugin).ApplyCredit("EXPERIENCE", player, amountToAdd, skill);
+            } else {
+				new CreditConversion(plugin).ApplyCredit("LEVEL", player, amountToAdd, skill);
+			}
 		}
 	}
 }
