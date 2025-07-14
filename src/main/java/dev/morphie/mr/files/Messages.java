@@ -74,11 +74,11 @@ public class Messages implements Listener {
 		cfg.addDefault("Commands.Reload", "&9[Admin] &b/mr reload &8- &7Reloads the plugins files.");
 		cfg.addDefault("Commands.Set", "&9[Admin] &b/mr set <player> <num> &8- &7Set a players credit balance.");
 		cfg.addDefault("Commands.Reset", "&9[Admin] &b/mr reset <player> &8- &7Reset a players credit balance.");
-		cfg.addDefault("CorrectUsage.Add", "&bCorrect Ussage&8: &7/mr add <player> <number>");
-		cfg.addDefault("CorrectUsage.Remove", "&bCorrect Ussage&8: &7/mr remove <player> <number>");
-		cfg.addDefault("CorrectUsage.Reset", "&bCorrect Ussage&8: &7/mr reset <player>");
-		cfg.addDefault("CorrectUsage.Set", "&bCorrect Ussage&8: &7/mr set <player> <number>");
-		cfg.addDefault("CorrectUsage.Send", "&bCorrect Ussage&8: &7/mr send <player> <number>");
+		cfg.addDefault("CorrectUsage.Add", "&bCorrect Usage&8: &7/mr add <player> <number>");
+		cfg.addDefault("CorrectUsage.Remove", "&bCorrect Usage&8: &7/mr remove <player> <number>");
+		cfg.addDefault("CorrectUsage.Reset", "&bCorrect Usage&8: &7/mr reset <player>");
+		cfg.addDefault("CorrectUsage.Set", "&bCorrect Usage&8: &7/mr set <player> <number>");
+		cfg.addDefault("CorrectUsage.Send", "&bCorrect Usage&8: &7/mr send <player> <number>");
 		cfg.addDefault("CreditAddMessage", "&7You have been given &b%CREDITS% &7credits!");
 		cfg.addDefault("CreditAddSuccessMessage", "&7Credit assignment successfull!");
 		cfg.addDefault("CreditAssignmentCanceled", "&7Credit assignment canceled successfully!");
@@ -92,7 +92,7 @@ public class Messages implements Listener {
 		cfg.addDefault("CreditSendMessage", "&7You have been sent &b%CREDITS% &7credits from &b%SENDER%&7.");
 		cfg.addDefault("CreditSendSuccessMessage", "&7You sent &b%CREDITS% &7credits to &b%TARGET%&7.");
 		cfg.addDefault("CreditSetMessage", "&7Your credits have been set to &b%CREDITS%&7.");
-		cfg.addDefault("CreditSetSuccessMessage", "&7Credits successfull set!");
+		cfg.addDefault("CreditSetSuccessMessage", "&7Credits successfully set!");
 		cfg.addDefault("ErrorPrefix", "&8[&9&l!&8] ");
 		cfg.addDefault("IgnoreFormat", "[X]");
 		cfg.addDefault("InvalidArgsMessage", "&7Invalid arguments! &b/mr help &7to view all commands.");
@@ -101,6 +101,7 @@ public class Messages implements Listener {
 		cfg.addDefault("InvalidNumberNegative", "&7The number you entered was not positive! Canceling credit assignment.");
 		cfg.addDefault("InvalidPlayer", "&7Cannot find that player!");
 		cfg.addDefault("InvalidSkill", "&7The argument entered was not recognized as a skill!");
+		cfg.addDefault("InvalidOtherPlayerCredits", "&7Insufficient credit amount! &b%PLAYER%'s &7current credit balance is &b%CREDITS%&7.");
 
 		List<String> list = new ArrayList<String>();
 		list.add(" ");
@@ -124,7 +125,6 @@ public class Messages implements Listener {
 		list4.add("&8- &7therbz");
 		list4.add("&8- &7Eleksploded");
 		list4.add("&8- &7Cobrex1");
-		list4.add("&8- &7");
 		list4.add(" ");
 		list4.add("&b&oClick for spigot link!");
 

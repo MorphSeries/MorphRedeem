@@ -187,7 +187,7 @@ public class Commands implements CommandExecutor {
 		            	return true;
 		            }
 		            if (amount <= 0) {
-		            	sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Remove")));
+						sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Remove")));
 		            	return true;
 		            }
 					Player target = null;
@@ -199,7 +199,7 @@ public class Commands implements CommandExecutor {
 			        	targetUUID = target.getUniqueId();
 			        	credits = Integer.parseInt(new DataManager(plugin).getData(targetUUID, "Credits"));
 			            if (amount > credits) {
-			            	sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Remove")));
+							sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidOtherPlayerCredits").replace("%PLAYER%", target.getName()).replace("%CREDITS%", "" + credits)));
 			            	return true; 
 			            }
 					} else if (checkIfUUID(args[1]) == true) {
@@ -207,7 +207,7 @@ public class Commands implements CommandExecutor {
 			        	target = Bukkit.getPlayer(targetUUID);
 			        	credits = Integer.parseInt(new DataManager(plugin).getData(targetUUID, "Credits"));
 			            if (amount > credits) {
-			            	sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Remove")));
+							sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidOtherPlayerCredits").replace("%PLAYER%", target.getName()).replace("%CREDITS%", "" + credits)));
 			            	return true; 
 			            }
 						if (getFileExists(targetUUID)) {
@@ -223,7 +223,7 @@ public class Commands implements CommandExecutor {
 						targetUUID = offTarget.getUniqueId();
 						credits = Integer.parseInt(new DataManager(plugin).getData(targetUUID, "Credits"));
 			            if (amount > credits) {
-			            	sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Remove")));
+							sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidOtherPlayerCredits").replace("%PLAYER%", target.getName()).replace("%CREDITS%", "" + credits)));
 			            	return true; 
 			            }
 						if (getFileExists(targetUUID)) {
@@ -236,7 +236,7 @@ public class Commands implements CommandExecutor {
 						}
 			        }
 		            if (amount > credits) {
-		            	sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("CorrectUsage.Remove")));
+						sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("ErrorPrefix") + this.plugin.getMessage("InvalidOtherPlayerCredits").replace("%PLAYER%", target.getName()).replace("%CREDITS%", "" + credits)));
 		            	return true; 
 		            }
 		            new DataManager(plugin).updateData(targetUUID, -amount, "Credits", "remove");
