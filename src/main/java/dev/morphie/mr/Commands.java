@@ -3,6 +3,7 @@ package dev.morphie.mr;
 import java.io.File;
 import java.util.UUID;
 
+import dev.morphie.mr.files.Messages;
 import dev.morphie.mr.util.CreditConversion;
 import dev.morphie.mr.util.StringUtils;
 import org.bukkit.Bukkit;
@@ -420,10 +421,9 @@ public class Commands implements CommandExecutor {
 			} else if (args[0].equalsIgnoreCase("reload")) {
 				if (sender.hasPermission("morphredeem.admin") || sender.hasPermission("morphredeem.reload")) {
 					Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("MorphRedeem");
-		            if (this.plugin != null) {
-		            	this.plugin.reloadConfig();
-		            	this.plugin.getServer().getPluginManager().disablePlugin(plugin);
-		            	this.plugin.getServer().getPluginManager().enablePlugin(plugin);
+		            if (plugin != null) {
+		            	plugin.reloadConfig();
+						this.plugin.reloadMessages();
 		            	sender.sendMessage(new StringUtils().addColor(this.plugin.getMessage("Prefix") + this.plugin.getMessage("ReloadMessage")));
 		            	return true;
 		            }

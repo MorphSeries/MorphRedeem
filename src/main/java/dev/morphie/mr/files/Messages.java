@@ -2,11 +2,13 @@ package dev.morphie.mr.files;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Listener;
@@ -46,19 +48,14 @@ public class Messages implements Listener {
 
 	    this.addDefaults(this.messagesCFG);
 	}
-	  
-    public void saveMessages() {
-    	try {
-    		this.messagesCFG.save(this.messagesFile);
-    	} catch (IOException e) {
-    		Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "Could not save the messages.yml file");
-    	}
-    }
-	  
-    public void reloadMessages() {
-    	this.messagesCFG = YamlConfiguration.loadConfiguration(this.messagesFile);
-    	this.addDefaults(this.messagesCFG);
-    }
+
+	public void saveMessages() {
+		try {
+			this.messagesCFG.save(this.messagesFile);
+		} catch (IOException e) {
+			Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "Could not save the messages.yml file");
+		}
+	}
     
     private void addDefaults(FileConfiguration cfg) {
 		cfg.addDefault("Commands.Header", "&7----------- &9&lMorphRedeem Commands &7----------");

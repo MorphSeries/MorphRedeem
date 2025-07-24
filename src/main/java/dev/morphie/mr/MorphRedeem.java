@@ -1,6 +1,7 @@
 package dev.morphie.mr;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +13,9 @@ import dev.morphie.mr.util.StringUtils;
 import dev.morphie.mr.util.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -31,7 +35,7 @@ import dev.morphie.mr.util.Database.MySQLConnection;
 public class MorphRedeem extends JavaPlugin implements Listener {
 	
 	public static Logger log = Logger.getLogger("Minecraft");
-	public Messages messagescfg;
+	public Messages messages;
 	public HashMap<Player, String> addCredits = new HashMap<Player, String>();
 	private PlayerFileEvent pe;
 	private RedeemMenuEvent me;
@@ -118,8 +122,8 @@ public class MorphRedeem extends JavaPlugin implements Listener {
 	}
 	
     public void loadConfigManager() {
-        this.messagescfg = new Messages(this);
-        this.messagescfg.setup();
+        this.messages = new Messages(this);
+        this.messages.setup();
       }
   	
     public ItemStack createInventoryItem(String paramString1, int paramInt, String paramString2, ArrayList<String> paramArrayList, boolean paramBoolean) {
@@ -152,12 +156,26 @@ public class MorphRedeem extends JavaPlugin implements Listener {
     }
 
 	public String getMessage(String string) {
-		String gotString = this.messagescfg.messagesCFG.getString(string);
+		String gotString = this.messages.messagesCFG.getString(string);
 		if (gotString != null) return gotString;
 		return "Null message";
 	}
 	
 	public List<String> getMessageList(String string) {
-		return this.messagescfg.messagesCFG.getStringList(string);
+		return this.messages.messagesCFG.getStringList(string);
 	}
+
+	public void reloadMessages() {
+		this.messages = new Messages(this);
+		File messagesFile = new File(this.getDataFolder(),"messages.yml");
+		FileConfiguration messagesCFG = YamlConfiguration.loadConfiguration(messagesFile);
+		if (messagesFile.exists()) {
+			try {
+				messagesCFG.save(messagesFile);
+				this.messages.setup();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+    }
 }
